@@ -10,17 +10,24 @@ import android.widget.EditText;
 
 public class LoginActivity extends AppCompatActivity {
 
-    EditText mail =(EditText)findViewById(R.id.txtEmail);
-    EditText password =(EditText)findViewById(R.id.txtPassword);
-    Button login=(Button)findViewById(R.id.btnLogin);
-    Button register=(Button)findViewById(R.id.btnRegister);
-    Intent intentHome = new Intent(this,HomeActivity.class);
-    Intent intentRegister = new Intent(this,RegisterActivity.class);
+    EditText mail;
+    EditText password;
+    Button login;
+    Button register;
+    Intent intentHome;
+    Intent intentRegister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        mail =(EditText)findViewById(R.id.txtEmail);
+        password =(EditText)findViewById(R.id.txtPassword);
+        login=(Button)findViewById(R.id.btnLogin);
+        register=(Button)findViewById(R.id.btnRegister);
+        intentHome = new Intent(this,HomeActivity.class);
+        intentRegister = new Intent(this,RegisterActivity.class);
+
         SetupClickListener();
         getSupportActionBar().hide();
     }
