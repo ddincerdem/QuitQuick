@@ -10,7 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QuitQuick">
 
-        <activity android:name=".HealthActivity" />
+        <activity android:name=".HealthActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter></activity>
+
+
         <activity android:name=".CommunityActivity" />
         <activity android:name=".AchievementActivity" >
         <intent-filter>

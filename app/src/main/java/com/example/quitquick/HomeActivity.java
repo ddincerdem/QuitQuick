@@ -7,11 +7,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class HomeActivity extends AppCompatActivity {
     Toolbar toolbar;
     ImageButton btnAppBarAchievement,btnAppBarHealth;
-    @Override
+
+
+
+        @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
@@ -31,5 +35,11 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(achievement);
 
         });
+
+
+
+
+
+
     }
 }
