@@ -8,6 +8,7 @@
     android:orientation="vertical"
     android:background="@color/green3"
     tools:context=".HomeActivity">
+    <include layout="@layout/action_bar_custom"/>
 
     <ImageView
         android:id="@+id/imgProfile"

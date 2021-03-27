@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AchievementActivity">
-
+    tools:context=".AchievementActivity"
+    android:background="@color/green3">
+    <include layout="@layout/action_bar_return_home"></include>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/green1"
+    android:id="@+id/actionBarReturnHome"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <ImageButton
+        android:layout_width="70dip"
+        android:layout_height="match_parent"
+        android:background="@drawable/abc_vector_test"
+        android:layout_gravity="left"
+        android:id="@+id/btnAppBarReturnHome"
+        >
+
+    </ImageButton>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:foregroundGravity="center_horizontal"
+        android:gravity="center|left"
+        android:text="Anasayfaya Dön"
+        android:textSize="24sp" >
+
+    </TextView>
+
+
+
+</androidx.appcompat.widget.Toolbar>
