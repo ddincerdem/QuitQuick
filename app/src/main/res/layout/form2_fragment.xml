@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:mask="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -31,12 +32,18 @@
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/btnPickStart"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Başladığınız Tarih" />
+            <br.com.sapereaude.maskedEditText.MaskedEditText
 
+                android:id="@+id/etDateStarted"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:typeface="monospace"
+                mask:mask="##-##-####"
+                android:hint="GGAAYYYY"
+                app:keep_hint="true"
+                android:textColor="@color/white"
+                />
         </TableRow>
 
         <TableRow
@@ -92,18 +99,18 @@
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/tvPackAmount"
+                android:id="@+id/tvcigsInPack"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Günde İçilen Paket Sayısı:"
+                android:text="1 Pakette Kaç Sigara Var ?"
                 android:textColor="@color/white"
                 android:textSize="18dp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/etCigPerDay"
+                android:id="@+id/etCigPerPack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -114,23 +121,21 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
-
-            <TextView
-                android:id="@+id/tvQuitDate"
+            <Button
+                android:id="@+id/btnReturn"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Bırakma Tarihi:"
-                android:textColor="@color/white"
-                android:textSize="24dp"
-                android:textStyle="bold" />
-
+                android:paddingRight="5dp"
+                android:text="Geri Dön"
+                android:textSize="17sp"
+                android:background="@color/green1"
+                android:layout_weight="1"/>
             <Button
-                android:id="@+id/btnPickQuickDate"
+                android:id="@+id/btnRegister"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bıraktığınız Tarih" />
+                android:layout_height="match_parent"
+                android:text="Kayıt Ol"
+                android:background="@color/green1"/>
         </TableRow>
     </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

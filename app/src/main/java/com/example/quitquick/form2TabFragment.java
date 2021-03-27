@@ -1,5 +1,6 @@
 package com.example.quitquick;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,36 +9,28 @@ import android.widget.Button;
 
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+
+import java.util.Calendar;
+import java.util.Date;
 
 public class form2TabFragment extends Fragment {
 
-    Button btnStart,btnQuit;
+    Button btnReturn;
+    ViewPager viewPager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.form2_fragment,container,false);
 
-        btnStart=root.findViewById(R.id.btnPickStart);
-        btnQuit=root.findViewById(R.id.btnPickQuickDate);
 
-        btnQuit.setOnClickListener(v -> {
+       btnReturn=root.findViewById(R.id.btnReturn);
 
-
-            DialogFragment picker = new DatePicker();
-
-            picker.show(getFragmentManager(), "datePicker");
+        btnReturn.setOnClickListener(v -> {
+            viewPager=getActivity().findViewById(R.id.view_pager);
+            viewPager.setCurrentItem(0);
 
         });
-
-        btnStart.setOnClickListener(v -> {
-
-            DialogFragment picker = new DatePicker();
-
-            picker.show(getFragmentManager(), "datePicker");
-
-        });
-
-
 
 
         return root;

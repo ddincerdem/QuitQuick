@@ -24,7 +24,7 @@ public class LoginActivity extends AppCompatActivity {
         mail =(EditText)findViewById(R.id.txtEmail);
         password =(EditText)findViewById(R.id.txtPassword);
         login=(Button)findViewById(R.id.btnLogin);
-        register=(Button)findViewById(R.id.btnRegister);
+        register=(Button)findViewById(R.id.btnSignUp);
         intentHome = new Intent(this,HomeActivity.class);
         intentRegister = new Intent(this,RegisterActivity.class);
 

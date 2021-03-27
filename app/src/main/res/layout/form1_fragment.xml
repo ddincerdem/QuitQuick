@@ -53,7 +53,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Soyisminiz::"
+                android:text="Soyisminiz:"
                 android:textColor="@color/white"
                 android:textSize="24dp"
                 android:textStyle="bold" />
@@ -110,7 +110,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Şifre"
+                android:text="Şifre:"
                 android:textColor="@color/white"
                 android:textSize="25dp"
                 android:textStyle="bold" />
@@ -139,7 +139,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Şifre(Tekrar):"
+                android:text="Şifre(Onay):"
                 android:textColor="@color/white"
                 android:textSize="23dp"
                 android:textStyle="bold" />
@@ -161,7 +161,18 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"/>
+            android:gravity="center">
+
+
+
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Next"
+                android:paddingLeft="5dp"/>
+        </TableRow>
     </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

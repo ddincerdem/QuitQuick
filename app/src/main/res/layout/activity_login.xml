@@ -43,7 +43,7 @@
             android:text="Giriş" />
 
         <Button
-            android:id="@+id/btnRegister"
+            android:id="@+id/btnSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
