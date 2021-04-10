@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
         intentRegister = new Intent(this,RegisterActivity.class);
 
         SetupClickListener();
-        getSupportActionBar().hide();
+//        getSupportActionBar().hide();
     }
 
     public void SetupClickListener(){

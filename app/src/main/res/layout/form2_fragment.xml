@@ -19,7 +19,8 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
 
             <TextView
                 android:id="@+id/tvStartedSmoking"
@@ -29,7 +30,7 @@
                 android:gravity="center"
                 android:text="Başlama Tarihi:"
                 android:textColor="@color/white"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <br.com.sapereaude.maskedEditText.MaskedEditText
@@ -37,18 +38,20 @@
                 android:id="@+id/etDateStarted"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:typeface="monospace"
-                mask:mask="##-##-####"
+                android:layout_weight="1"
                 android:hint="GGAAYYYY"
-                app:keep_hint="true"
+                android:inputType="number"
                 android:textColor="@color/white"
-                />
+                android:textSize="20sp"
+                android:typeface="monospace"
+                app:keep_hint="true"
+                mask:mask="##-##-####" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
 
             <TextView
                 android:id="@+id/tvSmokesPerDay"
@@ -56,23 +59,26 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Günde İçilen Sigara:"
+                android:text="Günde İçilen Sigara Sayısı:"
                 android:textColor="@color/white"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etSmokesPerDay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:ems="10"
                 android:inputType="numberDecimal"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textSize="20sp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
 
             <TextView
                 android:id="@+id/tvCigPrice"
@@ -82,60 +88,71 @@
                 android:gravity="center"
                 android:text="1 Paket Sigara Fiyatı:"
                 android:textColor="@color/white"
-                android:textSize="18dp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etPriceForPack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:ems="10"
                 android:inputType="numberDecimal"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textSize="20sp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
 
             <TextView
-                android:id="@+id/tvcigsInPack"
+                android:id="@+id/tvCigsInPack"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="1 Pakette Kaç Sigara Var ?"
                 android:textColor="@color/white"
-                android:textSize="18dp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etCigPerPack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:ems="10"
                 android:inputType="numberDecimal"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textSize="20sp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:layout_margin="5dp">
+
             <Button
                 android:id="@+id/btnReturn"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingRight="5dp"
-                android:text="Geri Dön"
-                android:textSize="17sp"
-                android:background="@color/green1"
-                android:layout_weight="1"/>
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/green5"
+                android:text="Önceki"
+                android:textSize="17sp" />
+
             <Button
                 android:id="@+id/btnRegister"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/green5"
                 android:text="Kayıt Ol"
-                android:background="@color/green1"/>
+                android:textSize="17sp" />
         </TableRow>
     </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
