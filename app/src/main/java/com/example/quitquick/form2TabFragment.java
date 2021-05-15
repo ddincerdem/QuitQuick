@@ -59,7 +59,6 @@ public class form2TabFragment extends Fragment {
             tvSmokesPerday.setTextColor(Color.WHITE);
             tvPriceForPack.setTextColor(Color.WHITE);
             tvCigsPerPack.setTextColor(Color.WHITE);
-            btnRegister.setText(etDateStarted.getText().toString());
             tvErrorF2.setText("Boş bırakılamaz.");
 
         }else if(!isDateValid(etDateStarted.getText().toString())){
@@ -122,7 +121,10 @@ public class form2TabFragment extends Fragment {
             DummyUser.getInstance().setSmokedPerday(etSmokesPerDay.getText().toString());
             DummyUser.getInstance().setPricePerPack(etPriceForPack.getText().toString());
             DummyUser.getInstance().setCigsPerPack(etCigsPerPack.getText().toString());
-
+            tvDateStarted.setTextColor(Color.WHITE);
+            tvSmokesPerday.setTextColor(Color.WHITE);
+            tvPriceForPack.setTextColor(Color.WHITE);
+            tvCigsPerPack.setTextColor(Color.WHITE);
 
             //Dummy user ı veritabanına ekle.
             tvErrorF2.setText("");
