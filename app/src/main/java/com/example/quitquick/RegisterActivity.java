@@ -29,9 +29,6 @@ public class RegisterActivity extends AppCompatActivity {
         tabLayout =  findViewById(R.id.tab_layout);
 
 
-
-
-
         tabLayout.addTab(tabLayout.newTab().setText("Kişisel Bilgiler"));
         tabLayout.addTab(tabLayout.newTab().setText("Bağımlılık Formu"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
@@ -55,4 +52,5 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     }
+
 }
