@@ -14,6 +14,8 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.quitquick.Models.DummyUser;
+
 import java.util.Calendar;
 import java.util.Date;
 
@@ -114,7 +116,17 @@ public class form2TabFragment extends Fragment {
 
 
             tvErrorF2.setText("Tamsayı giriniz.");
-        }else{tvErrorF2.setText("");}
+        }else{
+
+            DummyUser.getInstance().setDateStarted(etDateStarted.getText().toString());
+            DummyUser.getInstance().setSmokedPerday(etSmokesPerDay.getText().toString());
+            DummyUser.getInstance().setPricePerPack(etPriceForPack.getText().toString());
+            DummyUser.getInstance().setCigsPerPack(etCigsPerPack.getText().toString());
+
+
+            //Dummy user ı veritabanına ekle.
+            tvErrorF2.setText("");
+        }
 
 
         });
