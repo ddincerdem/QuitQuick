@@ -13,49 +13,50 @@ public class User {
 
     @NonNull
     @ColumnInfo(name = "First_Name")
-    String FirstName;
+    public String FirstName;
 
     @NonNull
     @ColumnInfo(name = "Last_Name")
-    String LastName;
+    public String LastName;
 
     @NonNull
     @ColumnInfo(name = "EMail")
-    String Email;
+    public String Email;
 
     @NonNull
     @ColumnInfo(name = "Password")
-    String Password;
+    public String Password;
 
     @NonNull
     @ColumnInfo(name = "StartDate")
-    String StartDate;
+    public String StartDate;
 
     @NonNull
     @ColumnInfo(name = "CigPerDay")
-    int CigPerDay;
+    public int CigPerDay;
 
     @NonNull
     @ColumnInfo(name = "PricePerPack")
-    double PricePerPack;
+    public double PricePerPack;
 
     @NonNull
     @ColumnInfo(name = "HowManyCigInPack")
-    int HowManyCigInPack;
+    public int HowManyCigInPack;
     public int getUserID() {
         return UserID;
     }
 
-    public User(int userID, @NonNull String firstName, @NonNull String lastName, @NonNull String email, @NonNull String password, @NonNull String startDate, int cigPerDay, double pricePerPack, int howManyCigInPack) {
-        UserID = userID;
-        FirstName = firstName;
-        LastName = lastName;
-        Email = email;
-        Password = password;
-        StartDate = startDate;
-        CigPerDay = cigPerDay;
-        PricePerPack = pricePerPack;
-        HowManyCigInPack = howManyCigInPack;
+    public User(int UserID, @NonNull String FirstName, @NonNull String LastName, @NonNull String Email,
+                @NonNull String Password, @NonNull String StartDate, int CigPerDay, double PricePerPack, int HowManyCigInPack) {
+        this.UserID = UserID;
+        this.FirstName = FirstName;
+        this.LastName = LastName;
+        this.Email = Email;
+        this.Password = Password;
+        this.StartDate = StartDate;
+        this.CigPerDay = CigPerDay;
+        this.PricePerPack = PricePerPack;
+        this.HowManyCigInPack = HowManyCigInPack;
     }
     public User( @NonNull String firstName, @NonNull String lastName, @NonNull String email, @NonNull String password, @NonNull String startDate, int cigPerDay, double pricePerPack, int howManyCigInPack) {
         FirstName = firstName;

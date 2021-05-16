@@ -4,8 +4,7 @@ import android.app.Application;
 
 import androidx.lifecycle.LiveData;
 
-import com.example.quitquick.DAO.DAO;
-import com.example.quitquick.Entities.Health;
+import com.example.quitquick.DAO.qqDAO;
 import com.example.quitquick.Entities.User;
 import com.example.quitquick.RoomDB.QuitQuickDB;
 
@@ -13,7 +12,7 @@ import java.util.List;
 
 public class UserREP {
 
-    private DAO dao;
+    private qqDAO dao;
     private LiveData<List<User>> liveDataUser;
     //private LiveData<User> user;
     public UserREP(Application application,int userId){
@@ -25,8 +24,8 @@ public class UserREP {
     public void insertUser(User usr){
         dao.insertUser(usr);
     }
-    public void deleteUser(int id){
-        dao.deleteUser(id);
+    public void deleteUser(User User){
+        dao.deleteUser(User);
     }
     public void updateUser(User usr){
         dao.updateUser(usr);

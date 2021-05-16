@@ -8,24 +8,10 @@ public class UserAch {
     public int UserID;
     public int AchId;
 
-    public UserAch(int userID, int achID) {
-        UserID = userID;
-        AchId = achID;
+    public UserAch(int UserID, int AchId) {
+        this.UserID = UserID;
+        this.AchId = AchId;
     }
 
-    public int getUserID() {
-        return UserID;
-    }
 
-    public void setUserID(int userID) {
-        UserID = userID;
-    }
-
-    public int getAchID() {
-        return AchId;
-    }
-
-    public void setAchID(int achID) {
-        AchId = achID;
-    }
 }

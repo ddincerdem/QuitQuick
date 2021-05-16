@@ -14,54 +14,21 @@ public class Achievement {
 
     @NonNull
     @ColumnInfo(name = "AchName")
-    String AchName;
+    public String AchName;
 
     @NonNull
     @ColumnInfo(name = "AchDesc")
-    String AchDesc;
+    public String AchDesc;
 
     @NonNull
     @ColumnInfo(name = "AchUnvanId")
-    int AchUnvanId;
+    public int AchUnvanId;
 
-    public Achievement(int achId, @NonNull String achName, @NonNull String achDesc, int achUnvanId) {
-        AchId = achId;
-        AchName = achName;
-        AchDesc = achDesc;
-        AchUnvanId = achUnvanId;
+    public Achievement(int AchId, @NonNull String AchName, @NonNull String AchDesc, int AchUnvanId) {
+        this.AchId = AchId;
+        this.AchName = AchName;
+        this.AchDesc = AchDesc;
+        this.AchUnvanId = AchUnvanId;
     }
 
-    public int getAchId() {
-        return AchId;
-    }
-
-    public void setAchId(int achId) {
-        AchId = achId;
-    }
-
-    @NonNull
-    public String getAchName() {
-        return AchName;
-    }
-
-    public void setAchName(@NonNull String achName) {
-        AchName = achName;
-    }
-
-    @NonNull
-    public String getAchDesc() {
-        return AchDesc;
-    }
-
-    public void setAchDesc(@NonNull String achDesc) {
-        AchDesc = achDesc;
-    }
-
-    public int getAchUnvanId() {
-        return AchUnvanId;
-    }
-
-    public void setAchUnvanId(int achUnvanId) {
-        AchUnvanId = achUnvanId;
-    }
 }

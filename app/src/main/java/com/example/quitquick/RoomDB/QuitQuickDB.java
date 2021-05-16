@@ -6,7 +6,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.example.quitquick.DAO.DAO;
+import com.example.quitquick.DAO.qqDAO;
 import com.example.quitquick.Entities.Achievement;
 import com.example.quitquick.Entities.Health;
 import com.example.quitquick.Entities.Message;
@@ -15,7 +15,6 @@ import com.example.quitquick.Entities.User;
 import com.example.quitquick.Entities.UserAch;
 import com.example.quitquick.Entities.UserUnvan;
 
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -23,7 +22,7 @@ import java.util.concurrent.Executors;
         Unvan.class, User.class, UserAch.class, UserUnvan.class},version = 1,exportSchema = false)
 public abstract class QuitQuickDB  extends RoomDatabase {
 
-    public abstract DAO getDao();
+    public abstract qqDAO getDao();
 
     private static QuitQuickDB instance;
     public static final ExecutorService dbWriteExecutor = Executors.newFixedThreadPool(5);

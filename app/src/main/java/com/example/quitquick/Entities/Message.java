@@ -11,55 +11,24 @@ public class Message {
 
     @PrimaryKey(autoGenerate = true)
     @NonNull
-    int MessageID;
+    public int MessageID;
 
     @NonNull
     @ColumnInfo(name = "SenderID")
     public int SenderId;
 
     @ColumnInfo(name = "Message")
-    LiveData<String> Message;
+    public String Message;
 
     @NonNull
     @ColumnInfo(name = "SendDate")
-    String SendDate;
+    public String SendDate;
 
-    public Message(int senderId, LiveData<String> message, @NonNull String sendDate) {
-        SenderId = senderId;
-        Message = message;
-        SendDate = sendDate;
+    public Message(int SenderId, String Message, @NonNull String SendDate) {
+        this.SenderId = SenderId;
+        this.Message = Message;
+        this.SendDate = SendDate;
     }
 
-    public int getMessageID() {
-        return MessageID;
-    }
 
-    public void setMessageID(int messageID) {
-        MessageID = messageID;
-    }
-
-    public int getSenderId() {
-        return SenderId;
-    }
-
-    public void setSenderId(int senderId) {
-        SenderId = senderId;
-    }
-
-    public LiveData<String> getMessage() {
-        return Message;
-    }
-
-    public void setMessage(LiveData<String> message) {
-        Message = message;
-    }
-
-    @NonNull
-    public String getSendDate() {
-        return SendDate;
-    }
-
-    public void setSendDate(@NonNull String sendDate) {
-        SendDate = sendDate;
-    }
 }

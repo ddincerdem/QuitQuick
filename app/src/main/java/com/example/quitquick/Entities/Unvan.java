@@ -14,27 +14,12 @@ public class Unvan {
 
     @NonNull
     @ColumnInfo(name = "UnvanName")
-    String UnvanName;
+    public String UnvanName;
 
-    public Unvan(int unvanID, @NonNull String unvanName) {
-        UnvanID = unvanID;
-        UnvanName = unvanName;
+    public Unvan(int UnvanID, @NonNull String UnvanName) {
+        this.UnvanID = UnvanID;
+        this.UnvanName = UnvanName;
     }
 
-    public int getUnvanID() {
-        return UnvanID;
-    }
 
-    public void setUnvanID(int unvanID) {
-        UnvanID = unvanID;
-    }
-
-    @NonNull
-    public String getUnvanName() {
-        return UnvanName;
-    }
-
-    public void setUnvanName(@NonNull String unvanName) {
-        UnvanName = unvanName;
-    }
 }

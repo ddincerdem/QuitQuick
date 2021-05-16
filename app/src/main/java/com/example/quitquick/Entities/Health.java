@@ -11,13 +11,13 @@ public class Health {
 
     @PrimaryKey(autoGenerate = true)
     @NonNull
-    int HealthDataID;
+    public int HealthDataID;
 
     @NonNull
     @ColumnInfo(name = "Duration")
-    int duration;
+    public int duration;
 
     @ColumnInfo(name = "Description")
-    String description;
+    public String description;
 
 }

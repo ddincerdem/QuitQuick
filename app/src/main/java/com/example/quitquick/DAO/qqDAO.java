@@ -1,11 +1,11 @@
 package com.example.quitquick.DAO;
 
 import androidx.lifecycle.LiveData;
+import androidx.room.Dao;
 import androidx.room.Delete;
-import androidx.room.Embedded;
+import androidx.room.Entity;
 import androidx.room.Insert;
 import androidx.room.Query;
-import androidx.room.Relation;
 import androidx.room.Transaction;
 import androidx.room.Update;
 
@@ -19,21 +19,22 @@ import com.example.quitquick.Entities.User;
 
 import java.util.List;
 
-public interface DAO {
 
+@Dao
+public interface qqDAO {
     @Query("SELECT * FROM HEALTH")
     LiveData<List<Health>> getAllHealth();
 
     @Insert
     void insertMessage(Message msg);
     @Delete
-    void deleteMessage(int msgId);
+    void deleteMessage(Message msg);
 
     @Query("Select * from COMMUNITY")
     LiveData<List<Message>> getAllMessages();
 
-    @Query("Select * from UserUnvan")
-    LiveData<List<Achievement>> getAllAchievements();
+    //@Query("Select * from UserUnvan")
+    //LiveData<List<Achievement>>getAllAchievements();
 
     @Query("SELECT * FROM UNVAN")
     LiveData<List<Unvan>> getAllUnvan();
@@ -42,7 +43,7 @@ public interface DAO {
     void insertUser(User user);
 
     @Delete
-    void deleteUser(int userID);
+    void deleteUser(User user);
 
     @Update
     void updateUser(User user);
@@ -55,14 +56,14 @@ public interface DAO {
 
     //Ara tablo
 
-    @Insert
-    void insertUserAch(int UserID,int AchID);
+   /* @Insert
+    void insertUserAch(User user, Achievement achievement);*/
 
     @Query("Select AchId from UserAch where UserID = :UserID")
     List<Integer> getUsersAchievementIds(int UserID);
-
+/*
     @Insert
-    void insertUserUnvan(int UserID,int UnvanID);
+    void insertUserUnvan(int UserID,int UnvanID);*/
 
     @Query("Select UnvanID from  UserUnvan where UserID=:UserID")
     List<Integer> getUsersUnvans(int UserID);
@@ -74,11 +75,4 @@ public interface DAO {
     @Transaction
     @Query("Select * from USER WHERE USERID = :ID")
     List<UserWithUnvans> getUserWithUnvans(int ID);
-
-
-
-
-
-
-
 }

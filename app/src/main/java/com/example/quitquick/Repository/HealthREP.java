@@ -5,8 +5,7 @@ import android.app.Application;
 import androidx.lifecycle.LiveData;
 import androidx.room.Query;
 
-import com.example.quitquick.DAO.DAO;
-import com.example.quitquick.Entities.Achievement;
+import com.example.quitquick.DAO.qqDAO;
 import com.example.quitquick.Entities.Health;
 import com.example.quitquick.RoomDB.QuitQuickDB;
 
@@ -14,7 +13,7 @@ import java.util.List;
 
 public class HealthREP {
 
-    private DAO dao;
+    private qqDAO dao;
     private LiveData<List<Health>> liveDataHealth;
 
     public HealthREP(Application application){
