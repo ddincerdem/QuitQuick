@@ -13,12 +13,12 @@ import java.util.List;
 public class UserREP {
 
     private qqDAO dao;
-    private LiveData<List<User>> liveDataUser;
+    private LiveData<List<User>> liveDataUsers;
     //private LiveData<User> user;
-    public UserREP(Application application,int userId){
+    public UserREP(Application application){
         QuitQuickDB db = QuitQuickDB.getDB(application.getApplicationContext());
         dao = db.getDao();
-        liveDataUser =dao.findUserById(userId);
+        liveDataUsers =dao.getAllUsers();
     }
 
     public void insertUser(User usr){
@@ -33,4 +33,6 @@ public class UserREP {
     public LiveData<List<User>> findUserByName(String name){
         return dao.findUserByName(name);
     }
+    public LiveData<List<User>> findUserById(int id){return dao.findUserById(id);}
+    public LiveData<List<User>> getAllUsers(){return dao.getAllUsers();}
 }

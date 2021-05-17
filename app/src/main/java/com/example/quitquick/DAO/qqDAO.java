@@ -37,6 +37,9 @@ public interface qqDAO {
     @Query("SELECT * FROM UNVAN")
     LiveData<List<Unvan>> getAllUnvan();
 
+    @Query("Select * from USER")
+    LiveData<List<User>>getAllUsers();
+
     @Insert
     void insertUser(User user);
 

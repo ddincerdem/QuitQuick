@@ -23,6 +23,6 @@ public class UserAchREP {
     }
 
     @Query("Select AchId,AchDesc,AchName,AchUnvanId from ACHIEVEMENT where AchId=(Select AchId from UserAch where UserID=:uid)")
-    public LiveData<List<Achievement>> getAllUnvan(){return liveDataUsersAchievements;}
+    public LiveData<List<Achievement>> getUsersAchievements(){return liveDataUsersAchievements;}
 
 }
