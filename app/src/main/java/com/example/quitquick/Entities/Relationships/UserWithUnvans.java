@@ -19,24 +19,4 @@ public class UserWithUnvans {
  )
     public List<Unvan> unvans;
 
-    public UserWithUnvans(User user, List<Unvan> unvans) {
-        this.user = user;
-        this.unvans = unvans;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public List<Unvan> getUnvans() {
-        return unvans;
-    }
-
-    public void setUnvans(List<Unvan> unvans) {
-        this.unvans = unvans;
-    }
 }

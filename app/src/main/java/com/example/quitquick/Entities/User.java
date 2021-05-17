@@ -69,79 +69,7 @@ public class User {
         HowManyCigInPack = howManyCigInPack;
     }
 
-    public void setUserID(int userID) {
-        UserID = userID;
-    }
-
-    @NonNull
-    public String getFirstName() {
-        return FirstName;
-    }
-
-    public void setFirstName(@NonNull String firstName) {
-        FirstName = firstName;
-    }
-
-    @NonNull
-    public String getLastName() {
-        return LastName;
-    }
-
-    public void setLastName(@NonNull String lastName) {
-        LastName = lastName;
-    }
-
-    @NonNull
-    public String getEmail() {
-        return Email;
-    }
-
-    public void setEmail(@NonNull String email) {
-        Email = email;
-    }
-
-    @NonNull
-    public String getPassword() {
-        return Password;
-    }
-
-    public void setPassword(@NonNull String password) {
-        Password = password;
-    }
-
-    @NonNull
-    public String getStartDate() {
-        return StartDate;
-    }
-
-    public void setStartDate(@NonNull String startDate) {
-        StartDate = startDate;
-    }
 
 
-    public int getCigPerDay() {
-        return CigPerDay;
-    }
 
-    public void setCigPerDay(int cigPerDay) {
-        CigPerDay = cigPerDay;
-    }
-
-
-    public double getPricePerPack() {
-        return PricePerPack;
-    }
-
-    public void setPricePerPack(double pricePerPack) {
-        PricePerPack = pricePerPack;
-    }
-
-
-    public int getHowManyCigInPack() {
-        return HowManyCigInPack;
-    }
-
-    public void setHowManyCigInPack(int howManyCigInPack) {
-        HowManyCigInPack = howManyCigInPack;
-    }
 }

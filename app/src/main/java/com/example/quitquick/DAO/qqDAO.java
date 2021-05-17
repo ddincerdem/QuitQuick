@@ -16,6 +16,7 @@ import com.example.quitquick.Entities.Relationships.UserWithAchivements;
 import com.example.quitquick.Entities.Relationships.UserWithUnvans;
 import com.example.quitquick.Entities.Unvan;
 import com.example.quitquick.Entities.User;
+import com.example.quitquick.Entities.UserAch;
 
 import java.util.List;
 
@@ -32,9 +33,6 @@ public interface qqDAO {
 
     @Query("Select * from COMMUNITY")
     LiveData<List<Message>> getAllMessages();
-
-    //@Query("Select * from UserUnvan")
-    //LiveData<List<Achievement>>getAllAchievements();
 
     @Query("SELECT * FROM UNVAN")
     LiveData<List<Unvan>> getAllUnvan();
@@ -56,14 +54,15 @@ public interface qqDAO {
 
     //Ara tablo
 
-   /* @Insert
-    void insertUserAch(User user, Achievement achievement);*/
+    @Transaction
+    @Query("Select AchId,AchDesc,AchName,AchUnvanId from ACHIEVEMENT where AchId=(Select AchId from UserAch where UserID=:uid)")
+    LiveData<List<Achievement>> getUserAchievements(int uid);
 
-    @Query("Select AchId from UserAch where UserID = :UserID")
-    List<Integer> getUsersAchievementIds(int UserID);
-/*
+   // @Query("Select AchId from UserAch where UserID = :UserID")
+   // List<Integer> getUsersAchievementIds(int UserID);  Bunlara gerek yok galiba
+
     @Insert
-    void insertUserUnvan(int UserID,int UnvanID);*/
+    void insertUserUnvan(User user,Unvan unvan);
 
     @Query("Select UnvanID from  UserUnvan where UserID=:UserID")
     List<Integer> getUsersUnvans(int UserID);
