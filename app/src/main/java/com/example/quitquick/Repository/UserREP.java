@@ -33,6 +33,6 @@ public class UserREP {
     public LiveData<List<User>> findUserByName(String name){
         return dao.findUserByName(name);
     }
-    public LiveData<List<User>> findUserById(int id){return dao.findUserById(id);}
+    public LiveData<User> findUserById(int id){return dao.findUserById(id);}
     public LiveData<List<User>> getAllUsers(){return dao.getAllUsers();}
 }

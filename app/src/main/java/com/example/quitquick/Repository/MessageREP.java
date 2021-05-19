@@ -21,8 +21,7 @@ public class MessageREP {
         liveDataMessages =dao.getAllMessages();
     }
 
-    @Query("Select * from COMMUNITY")
-    public LiveData<List<Message>>getAllMessages(){return liveDataMessages;}
+    public LiveData<List<Message>> getAllMessages(){return liveDataMessages;}
 
     public void insertMessage(Message msg){
     QuitQuickDB.dbWriteExecutor.execute(()->{

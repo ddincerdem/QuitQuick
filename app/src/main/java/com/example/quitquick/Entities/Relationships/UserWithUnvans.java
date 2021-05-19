@@ -18,5 +18,4 @@ public class UserWithUnvans {
          associateBy = @Junction(UserUnvan.class)
  )
     public List<Unvan> unvans;
-
 }

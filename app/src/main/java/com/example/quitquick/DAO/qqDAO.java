@@ -17,64 +17,64 @@ import com.example.quitquick.Entities.Relationships.UserWithUnvans;
 import com.example.quitquick.Entities.Unvan;
 import com.example.quitquick.Entities.User;
 import com.example.quitquick.Entities.UserAch;
+import com.example.quitquick.Entities.UserUnvan;
 
 import java.util.List;
 
 
 @Dao
 public interface qqDAO {
-    @Query("SELECT * FROM HEALTH")
-    LiveData<List<Health>> getAllHealth();
-
+    //Message Queries
     @Insert
     void insertMessage(Message msg);
     @Delete
     void deleteMessage(Message msg);
-
     @Query("Select * from COMMUNITY")
     LiveData<List<Message>> getAllMessages();
 
+    //UserWithMessages Queries
+    @Query("SELECT * FROM USER WHERE UserID = :id")
+    LiveData<User> getMessageSender(int id);
+
+    //Health Queries
+    @Query("SELECT * FROM HEALTH")
+    LiveData<List<Health>> getAllHealth();
+
+    //Unvan Queries
     @Query("SELECT * FROM UNVAN")
     LiveData<List<Unvan>> getAllUnvan();
 
+    //User Que ries
     @Query("Select * from USER")
     LiveData<List<User>>getAllUsers();
-
     @Insert
     void insertUser(User user);
-
     @Delete
     void deleteUser(User user);
-
     @Update
     void updateUser(User user);
-
     @Query("SELECT * FROM USER WHERE UserID = :ID")
-    LiveData<List<User>> findUserById(int ID);
-
+    LiveData<User> findUserById(int ID);
     @Query("SELECT * FROM USER WHERE First_Name = :name")
     LiveData<List<User>> findUserByName(String name);
 
-    //Ara tablo
-
+    //UserWithAchievemnt Queries
     @Transaction
     @Query("Select AchId,AchDesc,AchName,AchUnvanId from ACHIEVEMENT where AchId=(Select AchId from UserAch where UserID=:uid)")
     LiveData<List<Achievement>> getUserAchievements(int uid);
-
-   // @Query("Select AchId from UserAch where UserID = :UserID")
-   // List<Integer> getUsersAchievementIds(int UserID);  Bunlara gerek yok galiba
-
-    @Insert
-    void insertUserUnvan(User user,Unvan unvan);
-
-    @Query("Select UnvanID from  UserUnvan where UserID=:UserID")
-    List<Integer> getUsersUnvans(int UserID);
-
     @Transaction
     @Query("SELECT * FROM USER WHERE UserID = :ID")
-    List<UserWithAchivements> getUserWithAchievements(int ID);
+     List<UserWithAchivements> getUserWithAchievements(int ID);
 
+    //UserWithUnvan Queries
+    @Transaction
+    @Query("Select UnvanID from  UserUnvan where UserID=:UserID")
+    List<Integer> getUsersUnvans(int UserID);
     @Transaction
     @Query("Select * from USER WHERE USERID = :ID")
     List<UserWithUnvans> getUserWithUnvans(int ID);
+    @Transaction
+    @Insert
+    void insertUserAnotherUnvan(Unvan unvan);
+
 }
