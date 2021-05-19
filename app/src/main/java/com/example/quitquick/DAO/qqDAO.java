@@ -60,16 +60,15 @@ public interface qqDAO {
 
     //UserWithAchievemnt Queries
     @Transaction
-    @Query("Select AchId,AchDesc,AchName,AchUnvanId from ACHIEVEMENT where AchId=(Select AchId from UserAch where UserID=:uid)")
-    LiveData<List<Achievement>> getUserAchievements(int uid);
-    @Transaction
-    @Query("SELECT * FROM USER WHERE UserID = :ID")
-     List<UserWithAchivements> getUserWithAchievements(int ID);
+    @Query("Select * FROM USER WHERE UserID=:uid")
+    LiveData<List<UserWithAchivements>> getUserAchievements(int uid);
+
 
     //UserWithUnvan Queries
     @Transaction
-    @Query("Select UnvanID from  UserUnvan where UserID=:UserID")
-    List<Integer> getUsersUnvans(int UserID);
+    @Query("Select * from  USER where UserID=:UserID")
+    List<UserWithUnvans>getUsersUnvans(int UserID);
+
     @Transaction
     @Query("Select * from USER WHERE USERID = :ID")
     List<UserWithUnvans> getUserWithUnvans(int ID);
