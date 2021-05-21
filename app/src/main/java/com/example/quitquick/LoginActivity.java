@@ -1,12 +1,17 @@
 package com.example.quitquick;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.example.quitquick.Entities.User;
+import com.example.quitquick.ViewModels.UserVM;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -16,6 +21,8 @@ public class LoginActivity extends AppCompatActivity {
     Button register;
     Intent intentHome;
     Intent intentRegister;
+    UserVM uservm;
+    User userToLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         register=(Button)findViewById(R.id.btnSignUp);
         intentHome = new Intent(this,HomeActivity.class);
         intentRegister = new Intent(this,RegisterActivity.class);
-
+        uservm = new ViewModelProvider(this).get(com.example.quitquick.ViewModels.UserVM.class);
         SetupClickListener();
 //        getSupportActionBar().hide();
     }
@@ -36,7 +43,26 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity(intentHome);
+
+
+                userToLogin = uservm.findUserByEmail(mail.getText().toString());
+                if (userToLogin.Password.equals(password.getText().toString())){
+                  /*  com.example.quitquick.Models.User.getInstance().setName(userToLogin.getName());
+                    com.example.quitquick.Models.User.getInstance().setName(userToLogin.getName());
+                    com.example.quitquick.Models.User.getInstance().setName(userToLogin.getName());
+                    com.example.quitquick.Models.User.getInstance().setName(userToLogin.getName());
+                    com.example.quitquick.Models.User.getInstance().setName(userToLogin.getName());*/
+                    openActivity(intentHome);}
+                else{
+
+
+                    login.setText("olmadı");
+                }
+
+
+
+
+
             }
         });
 

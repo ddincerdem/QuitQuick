@@ -3,6 +3,7 @@ package com.example.quitquick.Repository;
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;
+import androidx.room.Query;
 
 import com.example.quitquick.DAO.qqDAO;
 import com.example.quitquick.Entities.User;
@@ -13,14 +14,13 @@ import java.util.List;
 public class UserREP {
 
     private qqDAO dao;
-    private LiveData<List<User>> liveDataUsers;
     //private LiveData<User> user;
     public UserREP(Application application){
         QuitQuickDB db = QuitQuickDB.getDB(application.getApplicationContext());
         dao = db.getDao();
-        liveDataUsers =dao.getAllUsers();
     }
 
+    public User findUserByEmail(String Email){return dao.findUserByEmail(Email);}
     public void insertUser(User usr){
         dao.insertUser(usr);
     }
@@ -34,5 +34,4 @@ public class UserREP {
         return dao.findUserByName(name);
     }
     public LiveData<User> findUserById(int id){return dao.findUserById(id);}
-    public LiveData<List<User>> getAllUsers(){return dao.getAllUsers();}
 }

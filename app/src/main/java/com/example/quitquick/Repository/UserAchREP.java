@@ -20,7 +20,7 @@ public class UserAchREP {
     public UserAchREP(Application application,int userID){
         QuitQuickDB db = QuitQuickDB.getDB(application.getApplicationContext());
         dao = db.getDao();
-        liveDataUsersAchievements =dao.getUserAchievements(userID);
+        liveDataUsersAchievements =dao.getUserWithAchievements(userID);
     }
 
     @Query("Select * FROM USER WHERE UserID=:uid")

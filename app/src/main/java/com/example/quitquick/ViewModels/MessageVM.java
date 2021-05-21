@@ -24,7 +24,6 @@ public class MessageVM extends AndroidViewModel {
         liveDataMessage = messageRep.getAllMessages();
     }
 
-    @Query("Select * from COMMUNITY")
     public LiveData<List<Message>>getAllMessages(){return liveDataMessage;}
 
     public void insertMessage(Message msg){

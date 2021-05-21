@@ -42,6 +42,11 @@ public class User {
     @NonNull
     @ColumnInfo(name = "HowManyCigInPack")
     public int HowManyCigInPack;
+
+    public User() {
+
+    }
+
     public int getUserID() {
         return UserID;
     }

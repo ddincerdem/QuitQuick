@@ -8,12 +8,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.quitquick.Models.DummyUser;
+import com.example.quitquick.Models.User;
 
 public class form1TabFragment extends Fragment {
 
@@ -118,10 +117,10 @@ public class form1TabFragment extends Fragment {
                 tvPassword.setTextColor(Color.WHITE);
                 tvPasswordC.setTextColor(Color.WHITE);
 
-                DummyUser.getInstance().setName(etName.getText().toString());
-                DummyUser.getInstance().setName(etSoyad.getText().toString());
-                DummyUser.getInstance().setEmail(etEmail.getText().toString());
-                DummyUser.getInstance().setPassword(etPassword.getText().toString());
+                User.getInstance().setName(etName.getText().toString());
+                User.getInstance().setSurname(etSoyad.getText().toString());
+                User.getInstance().setEmail(etEmail.getText().toString());
+                User.getInstance().setPassword(etPassword.getText().toString());
 
                 tvErrorF1.setText("");
                 viewPager=getActivity().findViewById(R.id.view_pager);

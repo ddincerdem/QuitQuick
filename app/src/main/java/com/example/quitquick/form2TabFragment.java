@@ -1,6 +1,5 @@
 package com.example.quitquick;
 
-import android.app.DatePickerDialog;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,14 +9,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.quitquick.Models.DummyUser;
-
-import java.util.Calendar;
-import java.util.Date;
+import com.example.quitquick.Models.User;
+import com.example.quitquick.ViewModels.UserVM;
 
 public class form2TabFragment extends Fragment {
 
@@ -25,11 +22,12 @@ public class form2TabFragment extends Fragment {
     ViewPager viewPager;
     EditText etDateStarted, etSmokesPerDay,etPriceForPack,etCigsPerPack;
     TextView tvDateStarted, tvSmokesPerday,tvPriceForPack,tvCigsPerPack,tvErrorF2;
+    private UserVM UserVM;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.form2_fragment,container,false);
-
+        UserVM = new ViewModelProvider(this).get(com.example.quitquick.ViewModels.UserVM.class);
 
        btnReturn=root.findViewById(R.id.btnReturn);
        etDateStarted = root.findViewById(R.id.etDateStarted);
@@ -117,17 +115,27 @@ public class form2TabFragment extends Fragment {
             tvErrorF2.setText("Tamsayı giriniz.");
         }else{
 
-            DummyUser.getInstance().setDateStarted(etDateStarted.getText().toString());
-            DummyUser.getInstance().setSmokedPerday(etSmokesPerDay.getText().toString());
-            DummyUser.getInstance().setPricePerPack(etPriceForPack.getText().toString());
-            DummyUser.getInstance().setCigsPerPack(etCigsPerPack.getText().toString());
+            User.getInstance().setDateStarted(etDateStarted.getText().toString());
+            User.getInstance().setSmokedPerday(etSmokesPerDay.getText().toString());
+            User.getInstance().setPricePerPack(etPriceForPack.getText().toString());
+            User.getInstance().setCigsPerPack(etCigsPerPack.getText().toString());
             tvDateStarted.setTextColor(Color.WHITE);
             tvSmokesPerday.setTextColor(Color.WHITE);
             tvPriceForPack.setTextColor(Color.WHITE);
             tvCigsPerPack.setTextColor(Color.WHITE);
 
-            //Dummy user ı veritabanına ekle.
+
+
+            com.example.quitquick.Entities.User usr = new com.example.quitquick.Entities.User(User.getInstance().getName(), User.getInstance().getSurname(),
+                    User.getInstance().getEmail(),User.getInstance().getPassword(),
+                    User.getInstance().getDateStarted(),
+                    1,
+                    1,
+                    1);
+            UserVM.insertUser(usr);
             tvErrorF2.setText("");
+
+
         }
 
 

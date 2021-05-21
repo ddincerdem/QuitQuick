@@ -1,11 +1,11 @@
 package com.example.quitquick.Models;
 
-public class DummyUser {
-    private static DummyUser Instance = null;
+public class User {
+    private static User Instance = null;
     private static String name,surname,email,password,dateStarted,smokedPerday,pricePerPack,cigsPerPack;
 
 
-    private DummyUser(){
+    private User(){
         name="";
         surname="";
         email="";
@@ -18,9 +18,9 @@ public class DummyUser {
 
     }
 
-    public static DummyUser getInstance(){
+    public static User getInstance(){
         if (Instance==null){
-            Instance=new DummyUser();
+            Instance=new User();
         }
         return Instance;
     }

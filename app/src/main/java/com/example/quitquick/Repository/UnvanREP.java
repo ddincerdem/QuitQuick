@@ -21,7 +21,6 @@ public class UnvanREP {
         liveDataUnvan =dao.getAllUnvan();
     }
 
-    @Query("Select * from UNVAN")
     public LiveData<List<Unvan>> getAllUnvan(){return liveDataUnvan;}
 
 

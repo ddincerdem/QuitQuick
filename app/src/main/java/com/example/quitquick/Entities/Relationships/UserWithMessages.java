@@ -12,8 +12,8 @@ public class UserWithMessages {
     @Embedded
     public User user;
     @Relation(
-            parentColumn = "SenderID",
-            entityColumn = "UserID"
+            parentColumn = "UserID",
+            entityColumn = "SenderID"
     )
     public List<Message> messages;
 
