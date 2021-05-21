@@ -59,33 +59,28 @@ public interface qqDAO {
 
     //UserWithAchievemnt Queries
     @Transaction
-<<<<<<< HEAD
     @Query("Select * FROM USER WHERE UserID=:uid")
     LiveData<List<UserWithAchivements>> getUserAchievements(int uid);
 
-=======
+
     @Query("SELECT * FROM USER WHERE UserID = :uid")
     LiveData<List<UserWithAchivements>> getUserWithAchievements(int uid);
 
     @Transaction
     @Query("SELECT * FROM ACHIEVEMENT")
      List<UserWithAchivements> getAllAchievements();
->>>>>>> 76a9823e51f50c7cb973599c55b30a58f3ff3394
+
 
     //UserWithUnvan Queries
 
     @Transaction
-<<<<<<< HEAD
     @Query("Select * from  USER where UserID=:UserID")
     List<UserWithUnvans>getUsersUnvans(int UserID);
 
     @Transaction
     @Query("Select * from USER WHERE USERID = :ID")
     List<UserWithUnvans> getUserWithUnvans(int ID);
-=======
-    @Query("SELECT * FROM  USER WHERE UserID= :UserID")
-    List<UserWithUnvans> getUsersUnvans(int UserID);
->>>>>>> 76a9823e51f50c7cb973599c55b30a58f3ff3394
+
 
     @Transaction
     @Insert
