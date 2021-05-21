@@ -15,11 +15,9 @@ import java.util.List;
 
 public class UserVM extends AndroidViewModel {
     private UserREP userRep;
-    private LiveData<List<User>> liveDataUsers;
     public UserVM(@NonNull @NotNull Application application) {
         super(application);
         userRep = new UserREP(application);
-        liveDataUsers = userRep.getAllUsers();
     }
 
     public void insertUser(User usr){
@@ -35,5 +33,4 @@ public class UserVM extends AndroidViewModel {
         return userRep.findUserByName(name);
     }
     public LiveData<User> findUserById(int id){return userRep.findUserById(id);}
-    public LiveData<List<User>> getAllUsers(){return userRep.getAllUsers();}
 }

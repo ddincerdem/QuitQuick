@@ -44,8 +44,6 @@ public interface qqDAO {
     LiveData<List<Unvan>> getAllUnvan();
 
     //User Queries
-    @Query("Select * from USER")
-    LiveData<List<User>>getAllUsers();
     @Insert
     void insertUser(User user);
     @Delete
@@ -59,34 +57,19 @@ public interface qqDAO {
 
     //UserWithAchievemnt Queries
     @Transaction
-<<<<<<< Updated upstream
-    @Query("Select * FROM USER WHERE UserID=:uid")
-    LiveData<List<UserWithAchivements>> getUserAchievements(int uid);
-
-=======
     @Query("SELECT * FROM USER WHERE UserID = :uid")
     LiveData<List<UserWithAchivements>> getUserWithAchievements(int uid);
 
     @Transaction
     @Query("SELECT * FROM ACHIEVEMENT")
      List<UserWithAchivements> getAllAchievements();
->>>>>>> Stashed changes
 
     //UserWithUnvan Queries
 
     @Transaction
-<<<<<<< Updated upstream
-    @Query("Select * from  USER where UserID=:UserID")
-    List<UserWithUnvans>getUsersUnvans(int UserID);
-
-    @Transaction
-    @Query("Select * from USER WHERE USERID = :ID")
-    List<UserWithUnvans> getUserWithUnvans(int ID);
-=======
     @Query("SELECT * FROM  USER WHERE UserID= :UserID")
     List<UserWithUnvans> getUsersUnvans(int UserID);
 
->>>>>>> Stashed changes
     @Transaction
     @Insert
     void insertUserAnotherUnvan(Unvan unvan);

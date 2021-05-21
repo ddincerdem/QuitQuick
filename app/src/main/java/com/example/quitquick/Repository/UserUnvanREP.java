@@ -21,7 +21,7 @@ public class UserUnvanREP {
     }
 
     public List<UserWithUnvans> getUserWithUnvans(int id){
-        liveDataUserUnvans = qqDao.getUserWithUnvans(id);
+        liveDataUserUnvans = qqDao.getUsersUnvans(id);
         return liveDataUserUnvans;
     }
 
