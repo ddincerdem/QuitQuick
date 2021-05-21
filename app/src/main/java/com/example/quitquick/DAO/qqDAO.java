@@ -3,7 +3,6 @@ package com.example.quitquick.DAO;
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
-import androidx.room.Entity;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Transaction;
@@ -13,11 +12,10 @@ import com.example.quitquick.Entities.Achievement;
 import com.example.quitquick.Entities.Health;
 import com.example.quitquick.Entities.Message;
 import com.example.quitquick.Entities.Relationships.UserWithAchivements;
+import com.example.quitquick.Entities.Relationships.UserWithMessages;
 import com.example.quitquick.Entities.Relationships.UserWithUnvans;
 import com.example.quitquick.Entities.Unvan;
 import com.example.quitquick.Entities.User;
-import com.example.quitquick.Entities.UserAch;
-import com.example.quitquick.Entities.UserUnvan;
 
 import java.util.List;
 
@@ -33,8 +31,9 @@ public interface qqDAO {
     LiveData<List<Message>> getAllMessages();
 
     //UserWithMessages Queries
+    @Transaction
     @Query("SELECT * FROM USER WHERE UserID = :id")
-    LiveData<User> getMessageSender(int id);
+    LiveData<UserWithMessages> getMessageWithSender(int id);
 
     //Health Queries
     @Query("SELECT * FROM HEALTH")
@@ -44,7 +43,7 @@ public interface qqDAO {
     @Query("SELECT * FROM UNVAN")
     LiveData<List<Unvan>> getAllUnvan();
 
-    //User Que ries
+    //User Queries
     @Query("Select * from USER")
     LiveData<List<User>>getAllUsers();
     @Insert
@@ -60,18 +59,34 @@ public interface qqDAO {
 
     //UserWithAchievemnt Queries
     @Transaction
+<<<<<<< Updated upstream
     @Query("Select * FROM USER WHERE UserID=:uid")
     LiveData<List<UserWithAchivements>> getUserAchievements(int uid);
 
+=======
+    @Query("SELECT * FROM USER WHERE UserID = :uid")
+    LiveData<List<UserWithAchivements>> getUserWithAchievements(int uid);
+
+    @Transaction
+    @Query("SELECT * FROM ACHIEVEMENT")
+     List<UserWithAchivements> getAllAchievements();
+>>>>>>> Stashed changes
 
     //UserWithUnvan Queries
+
     @Transaction
+<<<<<<< Updated upstream
     @Query("Select * from  USER where UserID=:UserID")
     List<UserWithUnvans>getUsersUnvans(int UserID);
 
     @Transaction
     @Query("Select * from USER WHERE USERID = :ID")
     List<UserWithUnvans> getUserWithUnvans(int ID);
+=======
+    @Query("SELECT * FROM  USER WHERE UserID= :UserID")
+    List<UserWithUnvans> getUsersUnvans(int UserID);
+
+>>>>>>> Stashed changes
     @Transaction
     @Insert
     void insertUserAnotherUnvan(Unvan unvan);

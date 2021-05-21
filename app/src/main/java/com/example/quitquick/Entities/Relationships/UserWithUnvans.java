@@ -6,7 +6,6 @@ import androidx.room.Relation;
 
 import com.example.quitquick.Entities.Unvan;
 import com.example.quitquick.Entities.User;
-import com.example.quitquick.Entities.UserUnvan;
 
 import java.util.List;
 

@@ -12,8 +12,8 @@ import com.example.quitquick.Entities.Health;
 import com.example.quitquick.Entities.Message;
 import com.example.quitquick.Entities.Unvan;
 import com.example.quitquick.Entities.User;
-import com.example.quitquick.Entities.UserAch;
-import com.example.quitquick.Entities.UserUnvan;
+import com.example.quitquick.Entities.Relationships.UserAch;
+import com.example.quitquick.Entities.Relationships.UserUnvan;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

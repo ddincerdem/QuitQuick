@@ -1,4 +1,4 @@
-package com.example.quitquick.Entities;
+package com.example.quitquick.Entities.Relationships;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;

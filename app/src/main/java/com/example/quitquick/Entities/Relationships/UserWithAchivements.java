@@ -5,9 +5,7 @@ import androidx.room.Junction;
 import androidx.room.Relation;
 
 import com.example.quitquick.Entities.Achievement;
-import com.example.quitquick.Entities.Unvan;
 import com.example.quitquick.Entities.User;
-import com.example.quitquick.Entities.UserAch;
 
 import java.util.List;
 

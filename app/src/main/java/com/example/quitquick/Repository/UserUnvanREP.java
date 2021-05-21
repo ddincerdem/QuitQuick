@@ -2,12 +2,9 @@ package com.example.quitquick.Repository;
 
 import android.app.Application;
 
-import androidx.lifecycle.LiveData;
-
 import com.example.quitquick.DAO.qqDAO;
 import com.example.quitquick.Entities.Relationships.UserWithUnvans;
 import com.example.quitquick.Entities.Unvan;
-import com.example.quitquick.Entities.UserUnvan;
 import com.example.quitquick.RoomDB.QuitQuickDB;
 
 import java.util.List;
