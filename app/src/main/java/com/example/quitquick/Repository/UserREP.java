@@ -20,7 +20,7 @@ public class UserREP {
         dao = db.getDao();
     }
 
-    public User findUserByEmail(String Email){return dao.findUserByEmail(Email);}
+    public User findUserByEmailAndPassword(String Email,String Pass){return dao.findUserByEmailAndPassword(Email,Pass);}
     public void insertUser(User usr){
         dao.insertUser(usr);
     }

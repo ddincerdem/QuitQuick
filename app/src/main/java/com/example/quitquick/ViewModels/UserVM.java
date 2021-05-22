@@ -19,7 +19,7 @@ public class UserVM extends AndroidViewModel {
         super(application);
         userRep = new UserREP(application);
     }
-    public User findUserByEmail(String email){return userRep.findUserByEmail(email);}
+    public User findUserByEmailAndPassword(String email,String pass){return userRep.findUserByEmailAndPassword(email,pass);}
     public void insertUser(User usr){
         userRep.insertUser(usr);
     }

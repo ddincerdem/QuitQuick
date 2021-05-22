@@ -3,11 +3,13 @@ package com.example.quitquick;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.quitquick.Entities.User;
@@ -23,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     Intent intentRegister;
     UserVM uservm;
     User userToLogin;
-
+    User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,28 +43,34 @@ public class LoginActivity extends AppCompatActivity {
 
     public void SetupClickListener(){
         login.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
 
+                String email = mail.getText().toString();
+                String parola = password.getText().toString();
 
-                userToLogin = uservm.findUserByEmail(mail.getText().toString());
-                if (userToLogin.Password.equals(password.getText().toString())){
-                  /*  com.example.quitquick.Models.User.getInstance().setName(userToLogin.getName());
-                    com.example.quitquick.Models.User.getInstance().setName(userToLogin.getName());
-                    com.example.quitquick.Models.User.getInstance().setName(userToLogin.getName());
-                    com.example.quitquick.Models.User.getInstance().setName(userToLogin.getName());
-                    com.example.quitquick.Models.User.getInstance().setName(userToLogin.getName());*/
-                    openActivity(intentHome);}
+                if (email.equals("") || email == null )
+                {
+                    Toast.makeText(getApplicationContext(), "E-Mail Girmediniz", Toast.LENGTH_SHORT).show();
+                }
+                if( parola.equals("") || parola == null){
+                    Toast.makeText(getApplicationContext(), "Parola Girmediniz", Toast.LENGTH_SHORT).show();
+                }
                 else{
 
+                    if (uservm.findUserByEmailAndPassword(email,parola) != null)
+                    {
 
-                    login.setText("olmadı");
+                        userToLogin = uservm.findUserByEmailAndPassword(email,parola);
+                        user = new User(userToLogin);
+                        openActivity(intentHome);
+
+                    }else{
+
+                        Toast.makeText(getApplicationContext(), "Parolaniz veya E-Mail Hatali", Toast.LENGTH_SHORT).show();
+                    }
                 }
-
-
-
-
-
             }
         });
 

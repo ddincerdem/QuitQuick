@@ -54,8 +54,8 @@ public interface qqDAO {
     LiveData<User> findUserById(int ID);
     @Query("SELECT * FROM USER WHERE First_Name = :name")
     LiveData<List<User>> findUserByName(String name);
-    @Query("Select * from USER where EMail = :Email")
-    User findUserByEmail(String Email);
+    @Query("Select * from USER where EMail = :Email AND Password = :Pass")
+    User findUserByEmailAndPassword(String Email,String Pass);
 
     //UserWithAchievemnt Queries
     @Transaction
@@ -68,7 +68,7 @@ public interface qqDAO {
 
     @Transaction
     @Query("SELECT * FROM ACHIEVEMENT")
-     List<UserWithAchivements> getAllAchievements();
+     List<Achievement> getAllAchievements();
 
 
     //UserWithUnvan Queries
