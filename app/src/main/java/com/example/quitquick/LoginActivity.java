@@ -41,6 +41,27 @@ public class LoginActivity extends AppCompatActivity {
 //        getSupportActionBar().hide();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+      checkSession();
+    }
+
+    private void checkSession() {
+        SessionManagament sessionManagament = new SessionManagament(LoginActivity.this);
+
+        int UserID = sessionManagament.getSession();
+
+        if (UserID != -1)
+        {
+            startActivity(intentHome);
+        }
+        else{
+
+        }
+    }
+
     public void SetupClickListener(){
         login.setOnClickListener(new View.OnClickListener() {
 
@@ -64,6 +85,8 @@ public class LoginActivity extends AppCompatActivity {
 
                         userToLogin = uservm.findUserByEmailAndPassword(email,parola);
                         user = new User(userToLogin);
+                        SessionManagament sessionManagament= new SessionManagament(LoginActivity.this);
+                        sessionManagament.saveSession(user);
                         openActivity(intentHome);
 
                     }else{

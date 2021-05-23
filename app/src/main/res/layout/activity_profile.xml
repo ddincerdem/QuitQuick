@@ -17,7 +17,8 @@
              android:layout_width="80dp"
              android:layout_height="80dp"
              android:clickable="true"
-             android:src="@drawable/ic_sign_out" />
+             android:src="@drawable/ic_sign_out"
+             android:onClick="logOut"/>
 
          <ImageView
              android:id="@+id/imgProfilePic"

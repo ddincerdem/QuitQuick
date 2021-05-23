@@ -20,7 +20,6 @@ public class ProfileActivity extends AppCompatActivity {
     TextView Email;
     TextView Cigars;
     TextView Money;
-    Intent intetLogin;
     Intent intentUpdateForm;
 
     @Override
@@ -41,9 +40,19 @@ public class ProfileActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_profile);
 
-
     }
 
 
+    public void logOut(View view) {
+        SessionManagament sessionManagament = new SessionManagament(ProfileActivity.this);
+        sessionManagament.removeSession();
 
+        openActivity();
+    }
+
+    private void openActivity() {
+        Intent intentLogin = new Intent(ProfileActivity.this,LoginActivity.class);
+        intentLogin.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intentLogin);
+    }
 }
