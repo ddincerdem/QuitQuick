@@ -18,9 +18,11 @@ import com.example.quitquick.Entities.Unvan;
 import com.example.quitquick.Entities.User;
 import com.example.quitquick.Entities.Relationships.UserAch;
 import com.example.quitquick.Entities.Relationships.UserUnvan;
+import com.example.quitquick.ViewModels.HealthVM;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -57,6 +59,9 @@ public abstract class QuitQuickDB  extends RoomDatabase {
 
     }
     private static void prePopulateDB(){
+        List<Health> healthList;
+        healthList= instance.getDao().getAllHealth();
+        if (healthList.isEmpty() || healthList.size()<1){
         Health health = new Health();
         health.setDuration(1);
         health.setDescription("Kalp krizi riskiniz azalmaya başlar.");
@@ -100,7 +105,7 @@ public abstract class QuitQuickDB  extends RoomDatabase {
 
         health.setDuration(1500);
         health.setDescription("Dolaşım sisteminiz normale döner. Pıhtı ve felç riski azalır.");
-        instance.getDao().insertHealth(health);
+        instance.getDao().insertHealth(health);}
     }
 
 }
