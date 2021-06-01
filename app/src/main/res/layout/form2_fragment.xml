@@ -43,7 +43,7 @@
                 android:textSize="20sp"
                 android:typeface="monospace"
                 app:keep_hint="true"
-                mask:mask="##-##-####" />
+                mask:mask="##/##/####" />
 
         </TableRow>
 

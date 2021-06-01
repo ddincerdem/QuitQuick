@@ -183,9 +183,9 @@ public class form2TabFragment extends Fragment {
 
         int counter;
         for (counter=0;counter<input.length();counter++){
-            if (input.charAt(counter)!='-' && !isInteger(String.valueOf(input.charAt(counter))) ){return false;}
+            if (input.charAt(counter)!='/' && !isInteger(String.valueOf(input.charAt(counter))) ){return false;}
         }
-        if (input.equals(null)||input=="GG-AA-YYYY"){return false;}     //date için özel kontroller
+        if (input.equals(null)||input=="GG/AA/YYYY"){return false;}     //date için özel kontroller
 
         return true;
     }
