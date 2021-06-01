@@ -35,6 +35,7 @@ dependencies {
     // Java language implementation
     implementation "androidx.navigation:navigation-fragment:$nav_version"
     implementation "androidx.navigation:navigation-ui:$nav_version"
+    implementation 'com.google.android.material:material:1.2.0-alpha01'
 
     // Kotlin
 //    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"

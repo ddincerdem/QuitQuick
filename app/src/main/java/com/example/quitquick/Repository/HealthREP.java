@@ -3,6 +3,7 @@ package com.example.quitquick.Repository;
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;
+import androidx.room.Insert;
 import androidx.room.Query;
 
 import com.example.quitquick.DAO.qqDAO;
@@ -14,7 +15,7 @@ import java.util.List;
 public class HealthREP {
 
     private qqDAO dao;
-    private LiveData<List<Health>> liveDataHealth;
+    private List<Health> liveDataHealth;
 
     public HealthREP(Application application){
         QuitQuickDB db = QuitQuickDB.getDB(application.getApplicationContext());
@@ -22,6 +23,8 @@ public class HealthREP {
         liveDataHealth =dao.getAllHealth();
     }
 
-    @Query("Select * from HEALTH")
-    public LiveData<List<Health>>getAllHealth(){return liveDataHealth;}
+
+    public List<Health>getAllHealth(){return dao.getAllHealth();}
+
+    public void insertHealth(Health health){dao.insertHealth(health);}
 }

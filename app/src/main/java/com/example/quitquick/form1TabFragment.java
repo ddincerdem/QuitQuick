@@ -18,7 +18,7 @@ public class form1TabFragment extends Fragment {
 
 
     EditText etName,etSoyad,etEmail,etPassword,etPasswordConf;
-    Button btnNext;
+    Button btnNext,btnReturntoLogin;
     ViewPager viewPager;
     TextView tvErrorF1,tvname,tvSurname,tvEmail,tvPassword,tvPasswordC;
     @Override
@@ -37,7 +37,12 @@ public class form1TabFragment extends Fragment {
         tvSurname = root.findViewById(R.id.tvSurname);
         tvPassword = root.findViewById(R.id.tvPassword);
         tvPasswordC = root.findViewById(R.id.tvPasswordConf);
+        btnReturntoLogin = root.findViewById(R.id.btnReturnLogin);
 
+        btnReturntoLogin.setOnClickListener(v->{
+            this.getActivity().finish();
+
+        });
         btnNext.setOnClickListener(v -> {
             if (!isEmpty(etName.getText().toString().trim())){
 

@@ -18,7 +18,7 @@ import java.util.List;
 public class HealthVM extends AndroidViewModel {
 
     private HealthREP healthRep;
-    private LiveData<List<Health>> liveDataHealth;
+    private List<Health> liveDataHealth;
 
 
     public HealthVM(@NonNull @NotNull Application application) {
@@ -28,6 +28,6 @@ public class HealthVM extends AndroidViewModel {
 
 
     }
-    @Query("Select * from HEALTH")
-    public LiveData<List<Health>>getAllHealth(){return liveDataHealth;}
+    public List<Health>getAllHealth(){return liveDataHealth;}
+    public void insertHealth(Health health){healthRep.insertHealth(health);}
 }

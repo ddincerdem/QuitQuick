@@ -36,8 +36,11 @@ public interface qqDAO {
     LiveData<UserWithMessages> getMessageWithSender(int id);
 
     //Health Queries
+    @Insert
+    void insertHealth(Health health);
+
     @Query("SELECT * FROM HEALTH")
-    LiveData<List<Health>> getAllHealth();
+    List<Health> getAllHealth();
 
     //Unvan Queries
     @Query("SELECT * FROM UNVAN")

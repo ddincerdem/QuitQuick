@@ -57,6 +57,7 @@ public class form2TabFragment extends Fragment {
             tvSmokesPerday.setTextColor(Color.WHITE);
             tvPriceForPack.setTextColor(Color.WHITE);
             tvCigsPerPack.setTextColor(Color.WHITE);
+            tvErrorF2.setTextColor(Color.RED);
             tvErrorF2.setText("Boş bırakılamaz.");
 
         }else if(!isDateValid(etDateStarted.getText().toString())){
@@ -65,6 +66,7 @@ public class form2TabFragment extends Fragment {
                 tvSmokesPerday.setTextColor(Color.WHITE);
                 tvPriceForPack.setTextColor(Color.WHITE);
                 tvCigsPerPack.setTextColor(Color.WHITE);
+                tvErrorF2.setTextColor(Color.RED);
                 tvErrorF2.setText("Hatalı tarih.");
 
         }else if (!isEmpty(etSmokesPerDay.getText().toString())){
@@ -74,6 +76,7 @@ public class form2TabFragment extends Fragment {
             tvSmokesPerday.setTextColor(Color.RED);
             tvPriceForPack.setTextColor(Color.WHITE);
             tvCigsPerPack.setTextColor(Color.WHITE);
+            tvErrorF2.setTextColor(Color.RED);
             tvErrorF2.setText("Boş bırakılamaz..");
 
 
@@ -83,7 +86,7 @@ public class form2TabFragment extends Fragment {
             tvSmokesPerday.setTextColor(Color.RED);
             tvPriceForPack.setTextColor(Color.WHITE);
             tvCigsPerPack.setTextColor(Color.WHITE);
-
+            tvErrorF2.setTextColor(Color.RED);
             tvErrorF2.setText("Tamsayı giriniz.");
         }else if(!isEmpty(etPriceForPack.getText().toString())){
 
@@ -91,7 +94,7 @@ public class form2TabFragment extends Fragment {
             tvSmokesPerday.setTextColor(Color.WHITE);
             tvPriceForPack.setTextColor(Color.RED);
             tvCigsPerPack.setTextColor(Color.WHITE);
-
+            tvErrorF2.setTextColor(Color.RED);
             tvErrorF2.setText("Boş bırakılamaz.");
 
         }else if(!isEmpty(etCigsPerPack.getText().toString())){
@@ -101,7 +104,7 @@ public class form2TabFragment extends Fragment {
             tvSmokesPerday.setTextColor(Color.WHITE);
             tvPriceForPack.setTextColor(Color.WHITE);
             tvCigsPerPack.setTextColor(Color.RED);
-
+            tvErrorF2.setTextColor(Color.RED);
             tvErrorF2.setText("Boş bırakılamaz.");
 
         }else if(!isInteger(etCigsPerPack.getText().toString())){
@@ -111,7 +114,7 @@ public class form2TabFragment extends Fragment {
             tvPriceForPack.setTextColor(Color.WHITE);
             tvCigsPerPack.setTextColor(Color.RED);
 
-
+            tvErrorF2.setTextColor(Color.RED);
             tvErrorF2.setText("Tamsayı giriniz.");
         }else{
 
@@ -133,7 +136,9 @@ public class form2TabFragment extends Fragment {
                     1,
                     1);
             UserVM.insertUser(usr);
-            tvErrorF2.setText("");
+            tvErrorF2.setTextColor(Color.GREEN);
+
+            tvErrorF2.setText("Kayıt Başarılı!");
 
 
         }
