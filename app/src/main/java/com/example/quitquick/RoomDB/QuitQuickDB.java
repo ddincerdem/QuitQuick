@@ -106,6 +106,27 @@ public abstract class QuitQuickDB  extends RoomDatabase {
         health.setDuration(1500);
         health.setDescription("Dolaşım sisteminiz normale döner. Pıhtı ve felç riski azalır.");
         instance.getDao().insertHealth(health);}
+
+        List<Achievement> achievementList;
+        achievementList= instance.getDao().getAllAchievements();
+
+        if (achievementList.isEmpty() || achievementList.size()<1){
+
+            Achievement ach = new Achievement();
+            ach.setAchDesc("1 sigara içilmedi");
+            ach.setAchName("sigara1");
+            ach.setAchUnvanId(1);
+            instance.getDao().insertAchievement(ach);
+
+            ach.setAchDesc("10 sigara içilmedi");
+            ach.setAchName("sigara2");
+            ach.setAchUnvanId(2);
+            instance.getDao().insertAchievement(ach);
+
+        }
     }
 
+
 }
+
+

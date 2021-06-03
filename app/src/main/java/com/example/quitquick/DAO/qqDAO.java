@@ -69,10 +69,12 @@ public interface qqDAO {
     @Query("SELECT * FROM USER WHERE UserID = :uid")
     LiveData<List<UserWithAchivements>> getUserWithAchievements(int uid);
 
-    @Transaction
-    @Query("SELECT * FROM ACHIEVEMENT")
-     List<Achievement> getAllAchievements();
 
+    @Query("SELECT * FROM ACHIEVEMENT")
+    List<Achievement> getAllAchievements();
+
+    @Insert
+    void insertAchievement(Achievement achievement);
 
     //UserWithUnvan Queries
 

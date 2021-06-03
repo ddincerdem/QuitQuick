@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <TextView
+        android:padding="5dp"
+        android:id="@+id/achievementProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1/20"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/achievementDesc"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:id="@+id/achievementDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="İçilmeyen Sigaraaaaaa"
+        android:gravity="center"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnUnlockTitle"
+        app:layout_constraintStart_toEndOf="@id/achievementProgress"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="5dp"/>
+
+
+    <Button
+        android:padding="5dp"
+        android:id="@+id/btnUnlockTitle"
+        android:layout_width="157dp"
+        android:layout_height="wrap_content"
+        android:text="Aç"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/achievementDesc"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

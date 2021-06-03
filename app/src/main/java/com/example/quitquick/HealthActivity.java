@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.lifecycle.LiveData;
@@ -27,6 +29,7 @@ public class HealthActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private Button button;
     private SliderPagerAdapter adapter;
+    ImageButton btnReturnHome;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +44,10 @@ public class HealthActivity extends AppCompatActivity {
         }*/
 
         setContentView(R.layout.activity_health);
+        btnReturnHome = findViewById(R.id.btnAppBarReturnHome);
+        btnReturnHome.setOnClickListener(v -> {
+            this.finish();
+        });
 
         // bind views
         viewPager = findViewById(R.id.pagerIntroSlider);
