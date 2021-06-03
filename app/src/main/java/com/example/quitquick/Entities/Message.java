@@ -30,5 +30,40 @@ public class Message {
         this.SendDate = SendDate;
     }
 
+    public Message() {
 
+    }
+
+    public int getMessageID() {
+        return MessageID;
+    }
+
+    public void setMessageID(int messageID) {
+        MessageID = messageID;
+    }
+
+    public int getSenderId() {
+        return SenderId;
+    }
+
+    public void setSenderId(int senderId) {
+        SenderId = senderId;
+    }
+
+    public String getMessage() {
+        return Message;
+    }
+
+    public void setMessage(String message) {
+        Message = message;
+    }
+
+    @NonNull
+    public String getSendDate() {
+        return SendDate;
+    }
+
+    public void setSendDate(@NonNull String sendDate) {
+        SendDate = sendDate;
+    }
 }
