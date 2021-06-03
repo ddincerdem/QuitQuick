@@ -17,15 +17,16 @@ import java.util.List;
 public class AchievementVM extends AndroidViewModel {
 
     private AchievementREP achievementRep;
-    private LiveData<List<Achievement>> liveAchievements;
+    private List<Achievement> liveAchievements;
     public AchievementVM(@NonNull @NotNull Application application) {
         super(application);
         achievementRep = new AchievementREP(application);
-        liveAchievements = achievementRep.getAllAchievements();
     }
 
     @Query("Select * from ACHIEVEMENT")
-    public LiveData<List<Achievement>>getAllAchievements(){return liveAchievements;}
-
+    public List<Achievement>getAllAchievements(){return achievementRep.getAllAchievements();}
+    void insertAchievement(Achievement achievement){
+        achievementRep.insertAchievement(achievement);
+    }
 
 }

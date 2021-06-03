@@ -24,11 +24,39 @@ public class Achievement {
     @ColumnInfo(name = "AchUnvanId")
     public int AchUnvanId;
 
-    public Achievement(int AchId, @NonNull String AchName, @NonNull String AchDesc, int AchUnvanId) {
-        this.AchId = AchId;
-        this.AchName = AchName;
-        this.AchDesc = AchDesc;
-        this.AchUnvanId = AchUnvanId;
+
+
+    public int getAchId() {
+        return AchId;
     }
 
+    public void setAchId(int achId) {
+        AchId = achId;
+    }
+
+    @NonNull
+    public String getAchName() {
+        return AchName;
+    }
+
+    public void setAchName(@NonNull String achName) {
+        AchName = achName;
+    }
+
+    @NonNull
+    public String getAchDesc() {
+        return AchDesc;
+    }
+
+    public void setAchDesc(@NonNull String achDesc) {
+        AchDesc = achDesc;
+    }
+
+    public int getAchUnvanId() {
+        return AchUnvanId;
+    }
+
+    public void setAchUnvanId(int achUnvanId) {
+        AchUnvanId = achUnvanId;
+    }
 }
