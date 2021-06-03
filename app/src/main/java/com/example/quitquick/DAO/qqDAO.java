@@ -54,7 +54,7 @@ public interface qqDAO {
     @Update
     void updateUser(User user);
     @Query("SELECT * FROM USER WHERE UserID = :ID")
-    LiveData<User> findUserById(int ID);
+    User findUserById(int ID);
     @Query("SELECT * FROM USER WHERE First_Name = :name")
     LiveData<List<User>> findUserByName(String name);
     @Query("Select * from USER where EMail = :Email AND Password = :Pass")

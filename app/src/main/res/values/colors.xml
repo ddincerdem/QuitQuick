@@ -14,5 +14,8 @@
     <color name= "green5">#02A676</color>
     <color name= "yellow1">#EBB11A</color>
     <color name= "red1">#ED553B</color>
+    <color name="grey">#E3E3E3</color>
+    <color name="green">#4CAF50</color>
+    <color name="greenDark">#28852C</color>
 
 </resources>

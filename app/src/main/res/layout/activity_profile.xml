@@ -93,7 +93,7 @@
                                      android:layout_height="wrap_content"
                                      android:layout_marginLeft="60dp"
                                      android:layout_marginTop="5dp"
-                                     android:text="Doğan Dinçer"
+                                     android:text=""
                                      android:textColor="@color/white"
                                      android:textSize="16dp"
                                      android:textStyle="bold|italic" />
@@ -173,7 +173,8 @@
                                      android:layout_height="match_parent"
                                      android:backgroundTint="@color/green5"
                                      android:text="Bilgilerimi Güncelle"
-                                     android:textSize="14dp" />
+                                     android:textSize="14dp"
+                                     />
 
                              </LinearLayout>
 

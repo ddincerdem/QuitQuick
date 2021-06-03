@@ -32,5 +32,5 @@ public class UserVM extends AndroidViewModel {
     public LiveData<List<User>> findUserByName(String name){
         return userRep.findUserByName(name);
     }
-    public LiveData<User> findUserById(int id){return userRep.findUserById(id);}
+    public User findUserById(int id){return userRep.findUserById(id);}
 }

@@ -129,12 +129,16 @@ public class form2TabFragment extends Fragment {
 
 
 
-            com.example.quitquick.Entities.User usr = new com.example.quitquick.Entities.User(User.getInstance().getName(), User.getInstance().getSurname(),
-                    User.getInstance().getEmail(),User.getInstance().getPassword(),
+            com.example.quitquick.Entities.User usr = new com.example.quitquick.Entities.User(
+                    User.getInstance().getName(),
+                    User.getInstance().getSurname(),
+                    User.getInstance().getEmail(),
+                    User.getInstance().getPassword(),
                     User.getInstance().getDateStarted(),
-                    1,
-                    1,
-                    1);
+                    Integer.parseInt(User.getInstance().getSmokedPerday()),
+                    Integer.parseInt(User.getInstance().getPricePerPack()),
+                    Integer.parseInt(User.getInstance().getCigsPerPack()));
+
             UserVM.insertUser(usr);
             tvErrorF2.setTextColor(Color.GREEN);
 

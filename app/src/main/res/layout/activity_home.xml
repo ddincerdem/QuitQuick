@@ -21,7 +21,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.157"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:src="@drawable/ic_main_icon" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -145,6 +145,7 @@
         tools:ignore="MissingConstraints">
 
         <LinearLayout
+            android:id="@+id/lytCommunity"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/yellow1"

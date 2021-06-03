@@ -33,5 +33,5 @@ public class UserREP {
     public LiveData<List<User>> findUserByName(String name){
         return dao.findUserByName(name);
     }
-    public LiveData<User> findUserById(int id){return dao.findUserById(id);}
+    public User findUserById(int id){return dao.findUserById(id);}
 }
