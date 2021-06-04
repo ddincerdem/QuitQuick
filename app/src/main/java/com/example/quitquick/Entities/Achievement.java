@@ -24,7 +24,17 @@ public class Achievement {
     @ColumnInfo(name = "AchUnvanId")
     public int AchUnvanId;
 
+    @NonNull
+    @ColumnInfo(name = "AchievementObjective")
+    public int AchievementObjective;
 
+    public int getAchievementObjective() {
+        return AchievementObjective;
+    }
+
+    public void setAchievementObjective(int achievementObjective) {
+        AchievementObjective = achievementObjective;
+    }
 
     public int getAchId() {
         return AchId;

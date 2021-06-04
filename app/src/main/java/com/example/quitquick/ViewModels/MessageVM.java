@@ -26,10 +26,9 @@ public class MessageVM extends AndroidViewModel {
 
     public LiveData<List<Message>>getAllMessages(){return liveDataMessage;}
 
-    public void insertMessage(Message msg){
-        messageRep.insertMessage(msg);
-        }
-        public void deleteMessage(Message msg){
+    public void insertMessage(Message msg){messageRep.insertMessage(msg); }
+    public void deleteMessage(Message msg){
         messageRep.deleteMessage(msg);
         }
+    public List<Message> getUsersMessagesById(int id){ return messageRep.getUsersMessagesById(id);}
 }

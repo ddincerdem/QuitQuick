@@ -29,12 +29,8 @@ public class AchievementActivity extends AppCompatActivity {
     Button btnUnlock;
     List<Achievement> achievementList;
     ListView achievements;
-    int userID;
-    private SessionManagament sessionManagament;
     private AchievementVM achievementVM;
-    private UserVM userVM;
-    public UnvanVM unvanVM;
-    public com.example.quitquick.Entities.User user;
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +43,7 @@ public class AchievementActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         achievementVM = new ViewModelProvider(this).get(com.example.quitquick.ViewModels.AchievementVM.class);
-        userVM = new ViewModelProvider(this).get(com.example.quitquick.ViewModels.UserVM.class);
-        unvanVM = new ViewModelProvider(this).get(com.example.quitquick.ViewModels.UnvanVM.class);
-        sessionManagament = new SessionManagament(this);
-        userID = sessionManagament.getSession();
-        user = userVM.findUserById(userID);
+
 
 
 
@@ -65,41 +57,8 @@ public class AchievementActivity extends AppCompatActivity {
         achievements = findViewById(R.id.lvAchievements);
         achievements.setAdapter(adapter);
 
-        try {
-            checkForAchievements();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-    }
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public void checkForAchievements() throws ParseException {
-
-        long cigsNotSmoked = Long.parseLong(Calculations.cigsNotSmoked(user.getCigPerDay(),user.getStartDate()));
-        double moneyEarned = Double.parseDouble(Calculations.EarnedMoney(user.getHowManyCigInPack(),user.getPricePerPack(),user.getCigPerDay(),user.getStartDate()));
-        long daysNotSmoked = Calculations.daysNotSmoked(user.getStartDate());
-        int messagesSent;
-
-        if (cigsNotSmoked>1){}
-        if (cigsNotSmoked>100){}
-        if (cigsNotSmoked>1000){}
-
-        if (moneyEarned>10){}
-        if (moneyEarned>100){}
-        if (moneyEarned>1000){}
-
-        if (daysNotSmoked>1){}
-        if (daysNotSmoked>10){}
-        if (daysNotSmoked>100){}
-        if (daysNotSmoked>1000){}
-
-
-
-
-
-
-
 
 
     }
+
 }

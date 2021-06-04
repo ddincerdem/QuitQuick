@@ -27,7 +27,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @Database(entities = {Achievement.class, Health.class, Message.class,
-        Unvan.class, User.class, UserAch.class, UserUnvan.class},version = 4,exportSchema = false)
+        Unvan.class, User.class, UserAch.class, UserUnvan.class},version = 7,exportSchema = false)
 public abstract class QuitQuickDB  extends RoomDatabase {
 
 
@@ -37,10 +37,10 @@ public abstract class QuitQuickDB  extends RoomDatabase {
     private static QuitQuickDB instance;
     public static final ExecutorService dbWriteExecutor = Executors.newFixedThreadPool(5);
 
-    static final Migration MIGRATION = new Migration(1, 4) {
+    static final Migration MIGRATION = new Migration(4, 7) {
         @Override
         public void migrate(@NonNull @NotNull SupportSQLiteDatabase database) {
-
+            database.execSQL("Alter table 'ACHIEVEMENT' ADD COLUMN 'AchievementObjective' INTEGER NOT NULL DEFAULT 100000");
         }
     };
 
@@ -117,19 +117,23 @@ public abstract class QuitQuickDB  extends RoomDatabase {
             ach.setAchDesc("1 sigara içilmedi");
             ach.setAchName("sigara1");
             ach.setAchUnvanId(1);
+            ach.setAchievementObjective(1);
             instance.getDao().insertAchievement(ach);
 
             ach.setAchDesc("100 sigara içilmedi");
             ach.setAchName("sigara2");
             ach.setAchUnvanId(2);
+            ach.setAchievementObjective(100);
             instance.getDao().insertAchievement(ach);
 
             ach.setAchDesc("1000 sigara içilmedi");
             ach.setAchName("sigara3");
+            ach.setAchievementObjective(1000);
             ach.setAchUnvanId(3);
             instance.getDao().insertAchievement(ach);
 
             ach.setAchDesc("10 lira harcanmadı");
+            ach.setAchievementObjective(10);
             ach.setAchName("para1");
             ach.setAchUnvanId(4);
             instance.getDao().insertAchievement(ach);

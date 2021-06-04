@@ -31,9 +31,12 @@ public interface qqDAO {
     LiveData<List<Message>> getAllMessages();
 
     //UserWithMessages Queries
-    @Transaction
+   /* @Transaction
     @Query("SELECT * FROM USER WHERE UserID = :id")
-    LiveData<UserWithMessages> getMessageWithSender(int id);
+    LiveData<UserWithMessages> getMessageWithSender(int id);*/
+
+    @Query("Select * From COMMUNITY where SenderID = :id")
+    public List<Message> getUsersMessagesById(int id);
 
     //Health Queries
     @Insert

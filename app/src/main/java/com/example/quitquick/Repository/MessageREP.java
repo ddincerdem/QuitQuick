@@ -40,12 +40,13 @@ public class MessageREP {
         });
 
     }
+    public List<Message> getUsersMessagesById(int id){ return dao.getUsersMessagesById(id);}
 
-    public LiveData<UserWithMessages> GetMessageSender(int ID){
+   /* public LiveData<UserWithMessages> GetMessageSender(int ID){
         QuitQuickDB.dbWriteExecutor.execute(()->{
             messageSender=dao.getMessageWithSender(ID);
         });
         return messageSender;
-    }
+    }*/
 
 }

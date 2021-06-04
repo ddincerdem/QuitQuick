@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.example.quitquick.Entities.Message;
 import com.example.quitquick.Entities.User;
 import com.example.quitquick.Repository.UserREP;
 
@@ -33,4 +34,5 @@ public class UserVM extends AndroidViewModel {
         return userRep.findUserByName(name);
     }
     public User findUserById(int id){return userRep.findUserById(id);}
+
 }
