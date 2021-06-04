@@ -1,2 +1,2 @@
 # QuitQuick
-Android Project with Java and Firebase Database
+Android Project with Java 
