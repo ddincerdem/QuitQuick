@@ -29,5 +29,6 @@ public class AchievementREP {
     public void insertAchievement(Achievement achievement) {
         dao.insertAchievement(achievement);
     }
+    public int getAchievementById(int achId){return dao.getAchievementById(achId);}
 
 }

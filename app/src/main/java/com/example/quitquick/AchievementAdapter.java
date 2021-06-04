@@ -100,79 +100,79 @@ public class AchievementAdapter extends ArrayAdapter<Achievement> {
         switch (achId){
             case 18:
 
-                if (Double.parseDouble(Calculations.cigsNotSmoked(user.getCigPerDay(),user.getStartDate()))>=1)flag=true;
+                if (Double.parseDouble(Calculations.cigsNotSmoked(user.getCigPerDay(),user.getStartDate()))>=achievementVM.getAchievementById(achId))flag=true;
 
                 break;
 
             case 19:
 
-                if (Double.parseDouble(Calculations.cigsNotSmoked(user.getCigPerDay(),user.getStartDate()))>=100)flag=true;
+                if (Double.parseDouble(Calculations.cigsNotSmoked(user.getCigPerDay(),user.getStartDate()))>=achievementVM.getAchievementById(achId))flag=true;
 
                 break;
 
             case 20:
 
-                if (Double.parseDouble(Calculations.cigsNotSmoked(user.getCigPerDay(),user.getStartDate()))>=1000)flag=true;
+                if (Double.parseDouble(Calculations.cigsNotSmoked(user.getCigPerDay(),user.getStartDate()))>=achievementVM.getAchievementById(achId))flag=true;
 
                 break;
 
             case 21:
 
-                if (Double.parseDouble(Calculations.EarnedMoney(user.getHowManyCigInPack(),user.getPricePerPack(),user.getCigPerDay(),user.getStartDate()))>=10)flag=true;
+                if (Double.parseDouble(Calculations.EarnedMoney(user.getHowManyCigInPack(),user.getPricePerPack(),user.getCigPerDay(),user.getStartDate()))>=achievementVM.getAchievementById(achId))flag=true;
 
                 break;
 
             case 22:
 
-                if (Double.parseDouble(Calculations.EarnedMoney(user.getHowManyCigInPack(),user.getPricePerPack(),user.getCigPerDay(),user.getStartDate()))>=100)flag=true;
+                if (Double.parseDouble(Calculations.EarnedMoney(user.getHowManyCigInPack(),user.getPricePerPack(),user.getCigPerDay(),user.getStartDate()))>=achievementVM.getAchievementById(achId))flag=true;
 
                 break;
 
             case 23:
 
-                if (Double.parseDouble(Calculations.EarnedMoney(user.getHowManyCigInPack(),user.getPricePerPack(),user.getCigPerDay(),user.getStartDate()))>=1000)flag=true;
+                if (Double.parseDouble(Calculations.EarnedMoney(user.getHowManyCigInPack(),user.getPricePerPack(),user.getCigPerDay(),user.getStartDate()))>=achievementVM.getAchievementById(achId))flag=true;
 
                 break;
 
             case 24:
 
-                if(Calculations.daysNotSmoked(user.getStartDate())>=1)flag=true;
+                if(Calculations.daysNotSmoked(user.getStartDate())>=achievementVM.getAchievementById(achId))flag=true;
 
                 break;
 
             case 25:
 
-                if(Calculations.daysNotSmoked(user.getStartDate())>=10)flag=true;
+                if(Calculations.daysNotSmoked(user.getStartDate())>=achievementVM.getAchievementById(achId))flag=true;
 
                 break;
 
             case 26:
 
-                if(Calculations.daysNotSmoked(user.getStartDate())>=100)flag=true;
+                if(Calculations.daysNotSmoked(user.getStartDate())>=achievementVM.getAchievementById(achId))flag=true;
 
                 break;
 
             case 27:
 
-                if(Calculations.daysNotSmoked(user.getStartDate())>=1000)flag=true;
+                if(Calculations.daysNotSmoked(user.getStartDate())>=achievementVM.getAchievementById(achId))flag=true;
 
                 break;
 
             case 28:
 
-            if (messageVM.getUsersMessagesById(userID).size()>=1)flag=true;
+            if (messageVM.getUsersMessagesById(userID).size()>=achievementVM.getAchievementById(achId))flag=true;
 
                 break;
 
             case 29:
 
-                if (messageVM.getUsersMessagesById(userID).size()>=10)flag=true;
+                if (messageVM.getUsersMessagesById(userID).size()>=achievementVM.getAchievementById(achId))flag=true;
 
                 break;
 
             case 30:
 
-                if (messageVM.getUsersMessagesById(userID).size()>=100)flag=true;
+                if (messageVM.getUsersMessagesById(userID).size()>=achievementVM.getAchievementById(achId))flag=true;
 
                 break;
 

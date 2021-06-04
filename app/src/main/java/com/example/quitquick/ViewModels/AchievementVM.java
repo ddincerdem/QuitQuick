@@ -28,5 +28,6 @@ public class AchievementVM extends AndroidViewModel {
     void insertAchievement(Achievement achievement){
         achievementRep.insertAchievement(achievement);
     }
+    public int getAchievementById(int achId){return achievementRep.getAchievementById(achId);}
 
 }
