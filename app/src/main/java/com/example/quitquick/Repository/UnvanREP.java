@@ -13,7 +13,7 @@ import java.util.List;
 
 public class UnvanREP {
     private qqDAO dao;
-    private LiveData<List<Unvan>> liveDataUnvan;
+    private List<Unvan> liveDataUnvan;
 
     public UnvanREP(Application application){
         QuitQuickDB db = QuitQuickDB.getDB(application.getApplicationContext());
@@ -21,7 +21,7 @@ public class UnvanREP {
         liveDataUnvan =dao.getAllUnvan();
     }
 
-    public LiveData<List<Unvan>> getAllUnvan(){return liveDataUnvan;}
-
+    public List<Unvan> getAllUnvan(){return dao.getAllUnvan();}
+    public void insertUnvan(Unvan unvan){dao.insertUnvan(unvan);};
 
 }

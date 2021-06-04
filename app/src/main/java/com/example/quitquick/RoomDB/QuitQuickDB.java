@@ -110,6 +110,7 @@ public abstract class QuitQuickDB  extends RoomDatabase {
         List<Achievement> achievementList;
         achievementList= instance.getDao().getAllAchievements();
 
+
         if (achievementList.isEmpty() || achievementList.size()<1){
 
             Achievement ach = new Achievement();
@@ -118,10 +119,125 @@ public abstract class QuitQuickDB  extends RoomDatabase {
             ach.setAchUnvanId(1);
             instance.getDao().insertAchievement(ach);
 
-            ach.setAchDesc("10 sigara içilmedi");
+            ach.setAchDesc("100 sigara içilmedi");
             ach.setAchName("sigara2");
             ach.setAchUnvanId(2);
             instance.getDao().insertAchievement(ach);
+
+            ach.setAchDesc("1000 sigara içilmedi");
+            ach.setAchName("sigara3");
+            ach.setAchUnvanId(3);
+            instance.getDao().insertAchievement(ach);
+
+            ach.setAchDesc("10 lira harcanmadı");
+            ach.setAchName("para1");
+            ach.setAchUnvanId(4);
+            instance.getDao().insertAchievement(ach);
+
+            ach.setAchDesc("100 lira harcanmadı");
+            ach.setAchName("para2");
+            ach.setAchUnvanId(5);
+            instance.getDao().insertAchievement(ach);
+
+            ach.setAchDesc("1000 lira harcanmadı");
+            ach.setAchName("para3");
+            ach.setAchUnvanId(6);
+            instance.getDao().insertAchievement(ach);
+
+            ach.setAchDesc("1 gündür sigara içilmedi");
+            ach.setAchName("gun1");
+            ach.setAchUnvanId(7);
+            instance.getDao().insertAchievement(ach);
+
+            ach.setAchDesc("10 gündür sigara içilmedi");
+            ach.setAchName("gun2");
+            ach.setAchUnvanId(8);
+            instance.getDao().insertAchievement(ach);
+
+            ach.setAchDesc("100 gündür sigara içilmedi");
+            ach.setAchName("gun3");
+            ach.setAchUnvanId(9);
+            instance.getDao().insertAchievement(ach);
+
+            ach.setAchDesc("1000 gündür sigara içilmedi");
+            ach.setAchName("gun4");
+            ach.setAchUnvanId(10);
+            instance.getDao().insertAchievement(ach);
+
+            ach.setAchDesc("1 mesaj gönderildi");
+            ach.setAchName("mesaj1");
+            ach.setAchUnvanId(11);
+            instance.getDao().insertAchievement(ach);
+
+            ach.setAchDesc("10 mesaj gönderildi");
+            ach.setAchName("mesaj2");
+            ach.setAchUnvanId(12);
+            instance.getDao().insertAchievement(ach);
+
+            ach.setAchDesc("100 mesaj gönderildi");
+            ach.setAchName("mesaj3");
+            ach.setAchUnvanId(13);
+            instance.getDao().insertAchievement(ach);
+
+        }
+
+        List<Unvan> unvanList;
+        unvanList = instance.getDao().getAllUnvan();
+
+        if (unvanList.isEmpty() || unvanList.size()<1){
+
+            Unvan unvan = new Unvan();
+            unvan.setUnvanID(1);
+            unvan.setUnvanName("Çömez");
+            instance.getDao().insertUnvan(unvan);
+
+            unvan.setUnvanID(2);
+            unvan.setUnvanName("Kararlı");
+            instance.getDao().insertUnvan(unvan);
+
+            unvan.setUnvanID(3);
+            unvan.setUnvanName("Tecrübeli");
+            instance.getDao().insertUnvan(unvan);
+
+            unvan.setUnvanID(4);
+            unvan.setUnvanName("Biriktirici");
+            instance.getDao().insertUnvan(unvan);
+
+            unvan.setUnvanID(5);
+            unvan.setUnvanName("Kumbaracı");
+            instance.getDao().insertUnvan(unvan);
+
+            unvan.setUnvanID(6);
+            unvan.setUnvanName("Tutumlu");
+            instance.getDao().insertUnvan(unvan);
+
+            unvan.setUnvanID(7);
+            unvan.setUnvanName("Yeni bıraktı");
+            instance.getDao().insertUnvan(unvan);
+
+            unvan.setUnvanID(8);
+            unvan.setUnvanName("İstikrarlı");
+            instance.getDao().insertUnvan(unvan);
+
+            unvan.setUnvanID(9);
+            unvan.setUnvanName("İradeli");
+            instance.getDao().insertUnvan(unvan);
+
+            unvan.setUnvanID(10);
+            unvan.setUnvanName("Eski içici");
+            instance.getDao().insertUnvan(unvan);
+
+            unvan.setUnvanID(11);
+            unvan.setUnvanName("Sosyal bırakıcı");
+            instance.getDao().insertUnvan(unvan);
+
+            unvan.setUnvanID(12);
+            unvan.setUnvanName("Çok sosyal");
+            instance.getDao().insertUnvan(unvan);
+
+            unvan.setUnvanID(13);
+            unvan.setUnvanName("Aşırı sosyal");
+            instance.getDao().insertUnvan(unvan);
 
         }
     }

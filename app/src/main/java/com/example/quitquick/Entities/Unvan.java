@@ -16,10 +16,20 @@ public class Unvan {
     @ColumnInfo(name = "UnvanName")
     public String UnvanName;
 
-    public Unvan(int UnvanID, @NonNull String UnvanName) {
-        this.UnvanID = UnvanID;
-        this.UnvanName = UnvanName;
+    public int getUnvanID() {
+        return UnvanID;
     }
 
+    public void setUnvanID(int unvanID) {
+        UnvanID = unvanID;
+    }
 
+    @NonNull
+    public String getUnvanName() {
+        return UnvanName;
+    }
+
+    public void setUnvanName(@NonNull String unvanName) {
+        UnvanName = unvanName;
+    }
 }

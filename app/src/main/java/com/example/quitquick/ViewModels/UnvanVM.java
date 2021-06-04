@@ -16,7 +16,7 @@ import java.util.List;
 
 public class UnvanVM extends AndroidViewModel {
     private UnvanREP unvanRep;
-    private LiveData<List<Unvan>> liveDataUnvan;
+    private List<Unvan> liveDataUnvan;
 
     public UnvanVM(@NonNull @NotNull Application application) {
         super(application);
@@ -25,5 +25,6 @@ public class UnvanVM extends AndroidViewModel {
 
     }
     @Query("Select * from UNVAN")
-    public LiveData<List<Unvan>> getAllUnvan(){return liveDataUnvan;}
+    public List<Unvan> getAllUnvan(){return liveDataUnvan;}
+    void insertUnvan(Unvan unvan){unvanRep.insertUnvan(unvan);}
 }

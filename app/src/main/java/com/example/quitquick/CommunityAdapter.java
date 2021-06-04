@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quitquick.Entities.Message;
-import com.example.quitquick.databinding.ItemSentBinding;
+
 
 import java.util.ArrayList;
 

@@ -1,48 +1,99 @@
 package com.example.quitquick;
 
+import android.content.Context;
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+import androidx.lifecycle.ViewModelProvider;
+
+import com.example.quitquick.Entities.User;
+import com.example.quitquick.ViewModels.UserVM;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
-public class Calculations {
+public  class Calculations {
 
 
 
-    public static long calculateDays(String basla,String birak){
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static String EarnedMoney(int howManyCigInPack, double pricePerPack, int cigPerDay, String startDatee) throws ParseException {
 
 
 
-    try {
-        SimpleDateFormat dates = new SimpleDateFormat("dd-MM-yyyy");
-        Date dateBaslama,dateBirakma;
-        //Setting dates
-        dateBaslama = dates.parse(basla);
-        dateBirakma = dates.parse(birak);
+        int pakettekiSigara =howManyCigInPack;
+        double paketFiyati = pricePerPack;
+        int gunlukIcilenSigara = cigPerDay;
+        double taneFiyati = paketFiyati / pakettekiSigara;
+        double kazanilanPara;
 
-        //Comparing dates
-        long difference = Math.abs(dateBaslama.getTime() - dateBirakma.getTime());
-        long differenceDates = difference / (24 * 60 * 60 * 1000);
+        String DateStart = startDatee;
+        SimpleDateFormat formatter1=new SimpleDateFormat("dd/MM/yyyy");
+        Date startDate = formatter1.parse(DateStart);
 
-        return differenceDates;
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate localDate = LocalDate.now();
+        String nowDate = dtf.format(localDate);
+        Date nowwDate = formatter1.parse(nowDate);
 
-    }catch(ParseException p){ System.out.println(p.getMessage()); return 0;}
+        long differenceInTime = nowwDate.getTime() - startDate.getTime();
+        long differenceInDays = (differenceInTime / (1000 * 60 * 60 * 24)) % 365;
 
+        kazanilanPara = taneFiyati *differenceInDays* gunlukIcilenSigara;
+        String Para = String.valueOf(kazanilanPara);
 
+        return Para;
     }
 
-    public static long cigsNotSmoked(long days,long dailyAverage){return days*dailyAverage;}
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static String cigsNotSmoked(int cigPerDay,String startDatee) throws ParseException {
 
-    public static long moneySaved(long days,long dailyAverage,long priceOfPack,long cigsInPack){
-        long cigsNotSmoked=cigsNotSmoked(days,dailyAverage);
-        long packsDidntBought = cigsNotSmoked/cigsInPack;
-        return packsDidntBought * priceOfPack;
+
+        int gunlukIcilenSigara = cigPerDay;
+        long sigaraAdet;
+
+        String DateStart = startDatee;
+        SimpleDateFormat formatter1=new SimpleDateFormat("dd/MM/yyyy");
+        Date startDate = formatter1.parse(DateStart);
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate localDate = LocalDate.now();
+        String nowDate = dtf.format(localDate);
+        Date nowwDate = formatter1.parse(nowDate);
+
+        long differenceInTime = nowwDate.getTime() - startDate.getTime();
+        long differenceInDays = (differenceInTime / (1000 * 60 * 60 * 24)) % 365;
+
+        sigaraAdet = differenceInDays * gunlukIcilenSigara;
+        String adet = String.valueOf(sigaraAdet);
+
+        return adet;
     }
 
-    
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static long daysNotSmoked(String startDatee) throws ParseException{
+
+        String DateStart = startDatee;
+        SimpleDateFormat formatter1=new SimpleDateFormat("dd/MM/yyyy");
+        Date startDate = formatter1.parse(DateStart);
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate localDate = LocalDate.now();
+        String nowDate = dtf.format(localDate);
+        Date nowwDate = formatter1.parse(nowDate);
+
+        long differenceInTime = nowwDate.getTime() - startDate.getTime();
+        long differenceInDays = (differenceInTime / (1000 * 60 * 60 * 24)) % 365;
+
+        return differenceInDays;
+
+    }
 
 
 

@@ -94,79 +94,11 @@ public class HomeActivity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void setAllVariables() throws ParseException {
-        txttime.setText(NotSmokedTime()+" Gun");
-        txtcig.setText(CigNotSmoked());
-        txtmon.setText(EarnedMoney()+" TL");
+        txttime.setText(Calculations.daysNotSmoked(user.getStartDate())+" Gun");
+        txtcig.setText(Calculations.cigsNotSmoked(user.getCigPerDay(),user.getStartDate()));
+        txtmon.setText(Calculations.EarnedMoney(user.getHowManyCigInPack(),user.getPricePerPack(),user.CigPerDay,user.StartDate)+" TL");
 
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    private String NotSmokedTime() throws ParseException {
-        String DateStart = user.getStartDate();
-        SimpleDateFormat formatter1=new SimpleDateFormat("dd/MM/yyyy");
-        Date startDate = formatter1.parse(DateStart);
 
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate localDate = LocalDate.now();
-        String nowDate = dtf.format(localDate);
-        Date nowwDate = formatter1.parse(nowDate);
-
-        long differenceInTime = nowwDate.getTime() - startDate.getTime();
-        long differenceInDays = (differenceInTime / (1000 * 60 * 60 * 24)) % 365;
-
-        String a =String.valueOf(differenceInDays);
-        return a;
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public String EarnedMoney() throws ParseException {
-
-        int pakettekiSigara = user.getHowManyCigInPack();
-        double paketFiyati = user.getPricePerPack();
-        int gunlukIcilenSigara = user.getCigPerDay();
-        double taneFiyati = paketFiyati / pakettekiSigara;
-        double kazanilanPara;
-
-        String DateStart = user.getStartDate();
-        SimpleDateFormat formatter1=new SimpleDateFormat("dd/MM/yyyy");
-        Date startDate = formatter1.parse(DateStart);
-
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate localDate = LocalDate.now();
-        String nowDate = dtf.format(localDate);
-        Date nowwDate = formatter1.parse(nowDate);
-
-        long differenceInTime = nowwDate.getTime() - startDate.getTime();
-        long differenceInDays = (differenceInTime / (1000 * 60 * 60 * 24)) % 365;
-
-        kazanilanPara = taneFiyati *differenceInDays* gunlukIcilenSigara;
-        String Para = String.valueOf(kazanilanPara);
-
-        return Para;
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public String CigNotSmoked() throws ParseException {
-
-
-        int gunlukIcilenSigara = user.getCigPerDay();
-        long sigaraAdet;
-
-        String DateStart = user.getStartDate();
-        SimpleDateFormat formatter1=new SimpleDateFormat("dd/MM/yyyy");
-        Date startDate = formatter1.parse(DateStart);
-
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate localDate = LocalDate.now();
-        String nowDate = dtf.format(localDate);
-        Date nowwDate = formatter1.parse(nowDate);
-
-        long differenceInTime = nowwDate.getTime() - startDate.getTime();
-        long differenceInDays = (differenceInTime / (1000 * 60 * 60 * 24)) % 365;
-
-        sigaraAdet = differenceInDays * gunlukIcilenSigara;
-        String adet = String.valueOf(sigaraAdet);
-
-        return adet;
-    }
 }

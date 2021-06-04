@@ -26,7 +26,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Başlama Tarihi:"
+                android:text="Bırakma Tarihi:"
                 android:textColor="@color/white"
                 android:textSize="22sp"
                 android:textStyle="bold" />

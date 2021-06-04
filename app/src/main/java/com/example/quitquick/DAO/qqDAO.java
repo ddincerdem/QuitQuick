@@ -44,7 +44,9 @@ public interface qqDAO {
 
     //Unvan Queries
     @Query("SELECT * FROM UNVAN")
-    LiveData<List<Unvan>> getAllUnvan();
+    List<Unvan> getAllUnvan();
+    @Insert
+    void insertUnvan(Unvan unvan);
 
     //User Queries
     @Insert
