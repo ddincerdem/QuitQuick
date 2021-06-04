@@ -29,12 +29,12 @@ public interface qqDAO {
     @Delete
     void deleteMessage(Message msg);
     @Query("Select * from COMMUNITY")
-    LiveData<List<Message>> getAllMessages();
+    List<Message> getAllMessages();
 
     //UserWithMessages Queries
-   /* @Transaction
+    @Transaction
     @Query("SELECT * FROM USER WHERE UserID = :id")
-    LiveData<UserWithMessages> getMessageWithSender(int id);*/
+    UserWithMessages getMessageWithSender(int id);
 
     @Query("Select * From COMMUNITY where SenderID = :id")
     public List<Message> getUsersMessagesById(int id);

@@ -17,18 +17,18 @@ import java.util.List;
 
 public class MessageVM extends AndroidViewModel {
     private MessageREP messageRep ;
-    private LiveData<List<Message>> liveDataMessage;
+    private List<Message> liveDataMessage;
     public MessageVM(@NonNull @NotNull Application application) {
         super(application);
         messageRep = new MessageREP(application);
         liveDataMessage = messageRep.getAllMessages();
     }
 
-    public LiveData<List<Message>>getAllMessages(){return liveDataMessage;}
+    public List<Message> getAllMessages(){return liveDataMessage;}
 
-    public void insertMessage(Message msg){messageRep.insertMessage(msg); }
-    public void deleteMessage(Message msg){
-        messageRep.deleteMessage(msg);
+    public void insertMessage(Message msg){messageRep.insertMessage(msg);}
+
+    public void deleteMessage(Message msg){messageRep.deleteMessage(msg);
         }
     public List<Message> getUsersMessagesById(int id){ return messageRep.getUsersMessagesById(id);}
 }

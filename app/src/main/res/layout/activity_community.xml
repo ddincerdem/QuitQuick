@@ -30,7 +30,8 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/ic_left_arrow"
-                app:tint="@color/white" />
+                app:tint="@color/white"
+                android:onClick="back"/>
 
         </LinearLayout>
 
@@ -90,5 +91,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/cardView"
         app:srcCompat="@drawable/ic_send"
-        app:tint="@color/white" />
+        app:tint="@color/white"
+        android:onClick="sendMessage"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,8 +14,8 @@ import java.util.List;
 
 public class MessageREP {
     private qqDAO dao;
-    private LiveData<List<Message>> liveDataMessages;
-    private LiveData<UserWithMessages> messageSender;
+    private List<Message> liveDataMessages;
+    private UserWithMessages messageSender;
 
     public MessageREP(Application application){
         QuitQuickDB db = QuitQuickDB.getDB(application.getApplicationContext());
@@ -23,7 +23,7 @@ public class MessageREP {
         liveDataMessages =dao.getAllMessages();
     }
 
-    public LiveData<List<Message>> getAllMessages(){return liveDataMessages;}
+    public List<Message> getAllMessages(){return liveDataMessages;}
 
     public void insertMessage(Message msg){
     QuitQuickDB.dbWriteExecutor.execute(()->{
@@ -42,11 +42,12 @@ public class MessageREP {
     }
     public List<Message> getUsersMessagesById(int id){ return dao.getUsersMessagesById(id);}
 
-   /* public LiveData<UserWithMessages> GetMessageSender(int ID){
+
+    public UserWithMessages GetMessageSender(int ID){
         QuitQuickDB.dbWriteExecutor.execute(()->{
             messageSender=dao.getMessageWithSender(ID);
         });
         return messageSender;
-    }*/
+    }
 
 }
