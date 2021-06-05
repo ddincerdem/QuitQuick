@@ -43,6 +43,14 @@ public class User {
     @ColumnInfo(name = "HowManyCigInPack")
     public int HowManyCigInPack;
 
+    public int getSelectedUnvanID() {
+        return SelectedUnvanID;
+    }
+
+    public void setSelectedUnvanID(int selectedUnvanID) {
+        SelectedUnvanID = selectedUnvanID;
+    }
+
     @NonNull
     @ColumnInfo(name= "SelectedUnvanID")
     public int SelectedUnvanID;

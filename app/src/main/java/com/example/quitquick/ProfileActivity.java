@@ -9,11 +9,16 @@ package com.example.quitquick;
         import android.os.Build;
         import android.os.Bundle;
         import android.view.View;
+        import android.widget.ArrayAdapter;
         import android.widget.Button;
         import android.widget.ImageView;
+        import android.widget.Spinner;
         import android.widget.TextView;
 
+        import com.example.quitquick.Entities.Unvan;
         import com.example.quitquick.Entities.User;
+        import com.example.quitquick.ViewModels.UnvanVM;
+        import com.example.quitquick.ViewModels.UserUnvanCRVM;
         import com.example.quitquick.ViewModels.UserVM;
 
         import java.text.ParseException;
@@ -21,6 +26,8 @@ package com.example.quitquick;
         import java.time.LocalDate;
         import java.time.format.DateTimeFormatter;
         import java.util.Date;
+        import java.util.List;
+        import java.util.ListIterator;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -36,6 +43,10 @@ public class ProfileActivity extends AppCompatActivity {
     TextView Email;
     TextView Cigars;
     TextView Money;
+    Spinner spinner;
+    List<Integer> UnvanIDs;
+    UserUnvanCRVM userUnvanCRVM;
+    UnvanVM  unvanVM;
     SessionManagament sessionManagament;
 
 
@@ -54,10 +65,15 @@ public class ProfileActivity extends AppCompatActivity {
         Email=(TextView)findViewById(R.id.txtProfileEmail);
         Cigars =(TextView)findViewById(R.id.txtProfileCig);
         Money = (TextView)findViewById(R.id.txtProfileMoney);
+        spinner = findViewById(R.id.spnUnvan);
         UserID = sessionManagament.getSession();
-        userVM = new ViewModelProvider(this).get(com.example.quitquick.ViewModels.UserVM.class);
-        user = userVM.findUserById(UserID);
 
+        userUnvanCRVM = new ViewModelProvider(this).get(com.example.quitquick.ViewModels.UserUnvanCRVM.class);
+        userVM = new ViewModelProvider(this).get(com.example.quitquick.ViewModels.UserVM.class);
+        unvanVM = new ViewModelProvider(this).get(com.example.quitquick.ViewModels.UnvanVM.class);
+        user = userVM.findUserById(UserID);
+        UnvanIDs = userUnvanCRVM.getUserUnvansLast(UserID);
+        
         Delete.setOnClickListener(v-> {
             userVM.deleteUser(user);
             sessionManagament.removeSession();
@@ -96,6 +112,7 @@ public class ProfileActivity extends AppCompatActivity {
         String soyisim = user.getLastName();
         String email = user.getEmail();
 
+
         Name.setText(isim);
         Surname.setText(soyisim);
         Email.setText(email);
@@ -103,6 +120,8 @@ public class ProfileActivity extends AppCompatActivity {
         Cigars.setText(Calculations.cigsNotSmoked(user.getCigPerDay(),user.getStartDate()));
     }
 
-
-
+    public void CheckAch(View view) {
+        Intent intentLogin = new Intent(ProfileActivity.this,AchievementActivity.class);
+        startActivity(intentLogin);
+    }
 }

@@ -94,7 +94,7 @@ public class HomeActivity extends AppCompatActivity {
         btnAppBarAchievement.setOnClickListener(v -> {
             Intent achievement = new Intent(HomeActivity.this,AchievementActivity.class);
             startActivity(achievement);
-            //sessionManagament.removeSession();
+          //sessionManagament.removeSession();
         });
 
     }
@@ -104,11 +104,20 @@ public class HomeActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        //setMessages();
+        if(Messages.isEmpty())
+        {
+            txtName.setText("Hoşgeldiniz");
+            txtMessage.setText("Henüz Mesaj Atılmamıştır");
+            txtTitle.setText(" ");
+        }
+        else
+        {
+            setMessages();
+        }
+
         try {
             setAllVariables();
         } catch (ParseException e) {
-
 
         }
     }
@@ -116,11 +125,10 @@ public class HomeActivity extends AppCompatActivity {
     private void setMessages() {
 
         LastMessage = Messages.get(Messages.size()-1);
-        if (LastMessage != null){
         MessageSender = userVM.findUserById(LastMessage.getSenderId());
         txtName.setText(String.valueOf(MessageSender.getFirstName()+" "+MessageSender.getLastName()));
         txtMessage.setText(String.valueOf(LastMessage.getMessage()));
-        txtTitle.setText("master"+" ");}
+        txtTitle.setText("master"+" ");
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)

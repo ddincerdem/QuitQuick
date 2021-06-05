@@ -121,23 +121,18 @@ public class AchievementAdapter extends ArrayAdapter<Achievement> {
                         dummy.setUnvanID(unvanId);
                         dummy.setUserID(user.getUserID());
                         userUnvanCRVM.insertUserUnvanCR(dummy);
-
                         UserAchievementCR dum = new UserAchievementCR();
                         dum.setAchievementID(achId);
                         dum.setUserID(user.getUserID());
                         userAchievementCRVM.insertUserAchievementCR(dum);
                         achDone(btnUnlock);
                         tvAchDescription.setTextColor(Color.BLACK);
-
-
                     }
                 }
             } catch (ParseException e) {
                 e.printStackTrace();
             }
         });
-
-
 
         return view;
     }

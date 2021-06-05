@@ -172,7 +172,8 @@
                                      android:layout_width="match_parent"
                                      android:layout_height="match_parent"
                                      android:backgroundTint="@color/green5"
-                                     android:text="Bilgilerimi Güncelle"
+                                     android:text="Başarılarıma Göz At"
+                                     android:onClick="CheckAch"
                                      android:textSize="14dp"
                                      />
 

@@ -7,6 +7,8 @@ import com.example.quitquick.Entities.UserAchievementCR;
 import com.example.quitquick.Entities.UserUnvanCR;
 import com.example.quitquick.RoomDB.QuitQuickDB;
 
+import java.util.List;
+
 public class UserUnvanCRREP {
 
     private qqDAO dao;
@@ -18,5 +20,7 @@ public class UserUnvanCRREP {
 
     public void insertUserUnvan(UserUnvanCR userUnvanCR){dao.insertUserUnvan(userUnvanCR);};
     public UserUnvanCR checkIfUserHasUnvan(int userid,int unvanid){return dao.checkIfUserHasUnvan(userid,unvanid);};
+    public List<Integer> getUsersUnvansLast(int id){return dao.getUsersUnvansLast(id);};
+
 
 }

@@ -12,6 +12,8 @@ import com.example.quitquick.Repository.UserUnvanCRREP;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
+
 public class UserUnvanCRVM extends AndroidViewModel {
 
     private UserUnvanCRREP userUnvanCRREP;
@@ -22,6 +24,7 @@ public class UserUnvanCRVM extends AndroidViewModel {
         userUnvanCRREP = new UserUnvanCRREP(application);
     }
 
+    public List<Integer> getUserUnvansLast(int id){return userUnvanCRREP.getUsersUnvansLast(id);};
 
     public void insertUserUnvanCR(UserUnvanCR userUnvanCR){userUnvanCRREP.insertUserUnvan(userUnvanCR);}
     public UserUnvanCR checkIfUserHasUnvan(int userid,int unvanid){return userUnvanCRREP.checkIfUserHasUnvan(userid,unvanid);};
