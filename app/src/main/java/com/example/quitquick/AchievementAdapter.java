@@ -31,6 +31,7 @@ import com.example.quitquick.ViewModels.UserVM;
 import java.lang.reflect.Array;
 import java.text.ParseException;
 import java.util.List;
+import java.util.Objects;
 
 public class AchievementAdapter extends ArrayAdapter<Achievement> {
     private List<Achievement> achievements;
@@ -80,6 +81,9 @@ public class AchievementAdapter extends ArrayAdapter<Achievement> {
                 btnUnlock.setClickable(true);
                 btnUnlock.setText("Başardın!");
                 btnUnlock.setHighlightColor(Color.BLUE);
+
+
+
             }else{btnUnlock.setClickable(false);btnUnlock.setText("Kilitli.");btnUnlock.setHighlightColor(Color.RED);}
         } catch (ParseException e) {
             e.printStackTrace();
@@ -87,23 +91,38 @@ public class AchievementAdapter extends ArrayAdapter<Achievement> {
 
         btnUnlock.setOnClickListener(v -> {
 
-        int unvanId = achievements.get(position).getAchId();
-        int achId = achievements.get(position).getAchId();
-        UserUnvanCR dummy = new UserUnvanCR();
+            int unvanId = achievements.get(position).getAchId();
+            int achId = achievements.get(position).getAchId();
+            UserUnvanCR dummy = new UserUnvanCR();
 
-        dummy.setUnvanID(unvanId);
-        dummy.setUserID(user.getUserID());
-        userUnvanCRVM.insertUserUnvanCR(dummy);
+            UserUnvanCR lamb = new UserUnvanCR();
+            lamb = userUnvanCRVM.checkIfUserHasUnvan(user.getUserID(),unvanId);
 
-        UserAchievementCR dum = new UserAchievementCR();
-        dum.setAchievementID(achId);
-        dum.setUserID(user.getUserID());
-        userAchievementCRVM.insertUserAchievementCR(dum);
+            try {
+                if (checkForAchieved(achId)) {
+                    if(Objects.isNull(lamb)){
 
-        Toast.makeText(context,""+unvanVM.getUnvanById(unvanId).getUnvanName()+" ünvanı açıldı. Tebrikler!",Toast.LENGTH_LONG).show();
+                        Toast.makeText(context, "" + unvanVM.getUnvanById(unvanId).getUnvanName() + " ünvanı açıldı. Tebrikler!", Toast.LENGTH_LONG).show();
+                        dummy.setUnvanID(unvanId);
+                        dummy.setUserID(user.getUserID());
+                        userUnvanCRVM.insertUserUnvanCR(dummy);
 
+                        UserAchievementCR dum = new UserAchievementCR();
+                        dum.setAchievementID(achId);
+                        dum.setUserID(user.getUserID());
+                        userAchievementCRVM.insertUserAchievementCR(dum);
+
+
+                    }else{
+                        Toast.makeText(context,"Bu başarımı zaten açtınız.",Toast.LENGTH_LONG).show();
+                    }
+                } else {
+                    Toast.makeText(context, "Henüz bu ünvanı açamazsınız.", Toast.LENGTH_SHORT).show();
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
         });
-
 
 
         return view;

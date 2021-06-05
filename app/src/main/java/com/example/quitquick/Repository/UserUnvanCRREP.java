@@ -17,6 +17,6 @@ public class UserUnvanCRREP {
     }
 
     public void insertUserUnvan(UserUnvanCR userUnvanCR){dao.insertUserUnvan(userUnvanCR);};
-
+    public UserUnvanCR checkIfUserHasUnvan(int userid,int unvanid){return dao.checkIfUserHasUnvan(userid,unvanid);};
 
 }

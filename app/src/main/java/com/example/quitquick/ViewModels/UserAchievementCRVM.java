@@ -26,4 +26,5 @@ public class UserAchievementCRVM extends AndroidViewModel {
 
 
     public void insertUserAchievementCR(UserAchievementCR userAchievementCR){userAchievementCRREP.insertUserAch(userAchievementCR);}
+
 }

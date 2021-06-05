@@ -24,4 +24,6 @@ public class UserUnvanCRVM extends AndroidViewModel {
 
 
     public void insertUserUnvanCR(UserUnvanCR userUnvanCR){userUnvanCRREP.insertUserUnvan(userUnvanCR);}
+    public UserUnvanCR checkIfUserHasUnvan(int userid,int unvanid){return userUnvanCRREP.checkIfUserHasUnvan(userid,unvanid);};
+
 }

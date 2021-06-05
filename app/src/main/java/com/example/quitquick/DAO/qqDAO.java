@@ -49,6 +49,9 @@ public interface qqDAO {
     @Query("Select * from UNVAN where UnvanID = :id")
     Unvan getUnvanById(int id);
 
+    @Query("Select * from UserUnvanCR where UserID=:userid AND UnvanID=:unvanid")
+    UserUnvanCR checkIfUserHasUnvan(int userid,int unvanid);
+
     @Insert
     void insertUnvan(Unvan unvan);
 
