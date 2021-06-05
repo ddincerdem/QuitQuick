@@ -43,6 +43,10 @@ public class User {
     @ColumnInfo(name = "HowManyCigInPack")
     public int HowManyCigInPack;
 
+    @NonNull
+    @ColumnInfo(name= "SelectedUnvanID")
+    public int SelectedUnvanID;
+
     public User() {
 
     }

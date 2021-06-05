@@ -12,9 +12,7 @@ import androidx.room.Update;
 import com.example.quitquick.Entities.Achievement;
 import com.example.quitquick.Entities.Health;
 import com.example.quitquick.Entities.Message;
-import com.example.quitquick.Entities.Relationships.UserWithAchivements;
-import com.example.quitquick.Entities.Relationships.UserWithMessages;
-import com.example.quitquick.Entities.Relationships.UserWithUnvans;
+
 import com.example.quitquick.Entities.Unvan;
 import com.example.quitquick.Entities.User;
 
@@ -31,10 +29,7 @@ public interface qqDAO {
     @Query("Select * from COMMUNITY")
     List<Message> getAllMessages();
 
-    //UserWithMessages Queries
-    @Transaction
-    @Query("SELECT * FROM USER WHERE UserID = :id")
-    UserWithMessages getMessageWithSender(int id);
+
 
     @Query("Select * From COMMUNITY where SenderID = :id")
     public List<Message> getUsersMessagesById(int id);
@@ -66,14 +61,7 @@ public interface qqDAO {
     @Query("Select * from USER where EMail = :Email AND Password = :Pass")
     User findUserByEmailAndPassword(String Email,String Pass);
 
-    //UserWithAchievemnt Queries
-    @Transaction
-    @Query("Select * FROM USER WHERE UserID=:uid")
-    LiveData<List<UserWithAchivements>> getUserAchievements(int uid);
 
-
-    @Query("SELECT * FROM USER WHERE UserID = :uid")
-    LiveData<List<UserWithAchivements>> getUserWithAchievements(int uid);
 
 
     @Query("SELECT * FROM ACHIEVEMENT")
@@ -88,13 +76,9 @@ public interface qqDAO {
 
     //UserWithUnvan Queries
 
-    @Transaction
-    @Query("Select * from  USER where UserID=:UserID")
-    List<UserWithUnvans>getUsersUnvans(int UserID);
 
-    @Transaction
-    @Query("Select * from USER WHERE USERID = :ID")
-    List<UserWithUnvans> getUserWithUnvans(int ID);
+
+
 
 
     @Transaction

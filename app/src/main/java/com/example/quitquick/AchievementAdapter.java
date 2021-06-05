@@ -98,79 +98,79 @@ public class AchievementAdapter extends ArrayAdapter<Achievement> {
     public boolean checkForAchieved(int achId) throws ParseException {
         boolean flag =false;
         switch (achId){
-            case 18:
+            case 1:
 
                 if (Double.parseDouble(Calculations.cigsNotSmoked(user.getCigPerDay(),user.getStartDate()))>=achievementVM.getAchievementById(achId))flag=true;
 
                 break;
 
-            case 19:
+            case 2:
 
                 if (Double.parseDouble(Calculations.cigsNotSmoked(user.getCigPerDay(),user.getStartDate()))>=achievementVM.getAchievementById(achId))flag=true;
 
                 break;
 
-            case 20:
+            case 3:
 
                 if (Double.parseDouble(Calculations.cigsNotSmoked(user.getCigPerDay(),user.getStartDate()))>=achievementVM.getAchievementById(achId))flag=true;
 
                 break;
 
-            case 21:
+            case 4:
 
                 if (Double.parseDouble(Calculations.EarnedMoney(user.getHowManyCigInPack(),user.getPricePerPack(),user.getCigPerDay(),user.getStartDate()))>=achievementVM.getAchievementById(achId))flag=true;
 
                 break;
 
-            case 22:
+            case 5:
 
                 if (Double.parseDouble(Calculations.EarnedMoney(user.getHowManyCigInPack(),user.getPricePerPack(),user.getCigPerDay(),user.getStartDate()))>=achievementVM.getAchievementById(achId))flag=true;
 
                 break;
 
-            case 23:
+            case 6:
 
                 if (Double.parseDouble(Calculations.EarnedMoney(user.getHowManyCigInPack(),user.getPricePerPack(),user.getCigPerDay(),user.getStartDate()))>=achievementVM.getAchievementById(achId))flag=true;
 
                 break;
 
-            case 24:
+            case 7:
 
                 if(Calculations.daysNotSmoked(user.getStartDate())>=achievementVM.getAchievementById(achId))flag=true;
 
                 break;
 
-            case 25:
+            case 8:
 
                 if(Calculations.daysNotSmoked(user.getStartDate())>=achievementVM.getAchievementById(achId))flag=true;
 
                 break;
 
-            case 26:
+            case 9:
 
                 if(Calculations.daysNotSmoked(user.getStartDate())>=achievementVM.getAchievementById(achId))flag=true;
 
                 break;
 
-            case 27:
+            case 10:
 
                 if(Calculations.daysNotSmoked(user.getStartDate())>=achievementVM.getAchievementById(achId))flag=true;
 
                 break;
 
-            case 28:
+            case 11:
 
             if (messageVM.getUsersMessagesById(userID).size()>=achievementVM.getAchievementById(achId))flag=true;
 
                 break;
 
-            case 29:
+            case 12:
 
                 if (messageVM.getUsersMessagesById(userID).size()>=achievementVM.getAchievementById(achId))flag=true;
 
                 break;
 
-            case 30:
+            case 13:
 
                 if (messageVM.getUsersMessagesById(userID).size()>=achievementVM.getAchievementById(achId))flag=true;
 
