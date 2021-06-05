@@ -27,4 +27,7 @@ public class UnvanVM extends AndroidViewModel {
     @Query("Select * from UNVAN")
     public List<Unvan> getAllUnvan(){return liveDataUnvan;}
     void insertUnvan(Unvan unvan){unvanRep.insertUnvan(unvan);}
+    public  Unvan getUnvanById(int id){
+        return unvanRep.getUnvanById(id);
+    }
 }

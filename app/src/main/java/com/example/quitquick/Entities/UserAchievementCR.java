@@ -20,4 +20,21 @@ public class UserAchievementCR {
     @ColumnInfo(name = "AchievementID")
     public int AchievementID;
 
+
+
+    public int getUserID() {
+        return UserID;
+    }
+
+    public void setUserID(int userID) {
+        UserID = userID;
+    }
+
+    public int getAchievementID() {
+        return AchievementID;
+    }
+
+    public void setAchievementID(int achievementID) {
+        AchievementID = achievementID;
+    }
 }

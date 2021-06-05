@@ -20,4 +20,19 @@ public class UserUnvanCR {
     @ColumnInfo(name = "UnvanID")
     public int UnvanID;
 
+    public int getUserID() {
+        return UserID;
+    }
+
+    public void setUserID(int userID) {
+        UserID = userID;
+    }
+
+    public int getUnvanID() {
+        return UnvanID;
+    }
+
+    public void setUnvanID(int unvanID) {
+        UnvanID = unvanID;
+    }
 }

@@ -15,6 +15,8 @@ import com.example.quitquick.Entities.Message;
 
 import com.example.quitquick.Entities.Unvan;
 import com.example.quitquick.Entities.User;
+import com.example.quitquick.Entities.UserAchievementCR;
+import com.example.quitquick.Entities.UserUnvanCR;
 
 import java.util.List;
 
@@ -32,7 +34,7 @@ public interface qqDAO {
 
 
     @Query("Select * From COMMUNITY where SenderID = :id")
-    public List<Message> getUsersMessagesById(int id);
+     List<Message> getUsersMessagesById(int id);
 
     //Health Queries
     @Insert
@@ -44,6 +46,9 @@ public interface qqDAO {
     //Unvan Queries
     @Query("SELECT * FROM UNVAN")
     List<Unvan> getAllUnvan();
+    @Query("Select * from UNVAN where UnvanID = :id")
+    Unvan getUnvanById(int id);
+
     @Insert
     void insertUnvan(Unvan unvan);
 
@@ -76,14 +81,14 @@ public interface qqDAO {
 
     //UserWithUnvan Queries
 
-
-
-
-
-
-    @Transaction
     @Insert
-    void insertUserAnotherUnvan(Unvan unvan);
+    void insertUserAch(UserAchievementCR userAchievement);
+
+    @Insert
+    void insertUserUnvan(UserUnvanCR userUnvanCR);
+
+
+
 
 
 

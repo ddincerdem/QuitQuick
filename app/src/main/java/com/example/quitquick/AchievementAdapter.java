@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,9 +19,13 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
 
 import com.example.quitquick.Entities.Achievement;
+import com.example.quitquick.Entities.UserAchievementCR;
+import com.example.quitquick.Entities.UserUnvanCR;
 import com.example.quitquick.ViewModels.AchievementVM;
 import com.example.quitquick.ViewModels.MessageVM;
 import com.example.quitquick.ViewModels.UnvanVM;
+import com.example.quitquick.ViewModels.UserAchievementCRVM;
+import com.example.quitquick.ViewModels.UserUnvanCRVM;
 import com.example.quitquick.ViewModels.UserVM;
 
 import java.lang.reflect.Array;
@@ -38,6 +43,8 @@ public class AchievementAdapter extends ArrayAdapter<Achievement> {
     public UnvanVM unvanVM;
     public MessageVM messageVM;
     public com.example.quitquick.Entities.User user;
+    public UserUnvanCRVM userUnvanCRVM;
+    public UserAchievementCRVM userAchievementCRVM;
 
     public AchievementAdapter(@NonNull Context context, int resource, @NonNull List<Achievement> achievementList) {
         super(context, resource,  achievementList);
@@ -65,8 +72,8 @@ public class AchievementAdapter extends ArrayAdapter<Achievement> {
         userID = sessionManagament.getSession();
         user = userVM.findUserById(userID);
         messageVM = new ViewModelProvider((ViewModelStoreOwner)context).get(com.example.quitquick.ViewModels.MessageVM.class);
-
-
+        userUnvanCRVM = new ViewModelProvider((ViewModelStoreOwner)context).get(com.example.quitquick.ViewModels.UserUnvanCRVM.class);
+        userAchievementCRVM = new ViewModelProvider((ViewModelStoreOwner)context).get(com.example.quitquick.ViewModels.UserAchievementCRVM.class);
 
         try {
             if(checkForAchieved(ach.getAchId())){
@@ -79,14 +86,21 @@ public class AchievementAdapter extends ArrayAdapter<Achievement> {
         }
 
         btnUnlock.setOnClickListener(v -> {
-            //UserUnvana insert
-            //UserAchievement insert
 
+        int unvanId = achievements.get(position).getAchId();
+        int achId = achievements.get(position).getAchId();
+        UserUnvanCR dummy = new UserUnvanCR();
 
+        dummy.setUnvanID(unvanId);
+        dummy.setUserID(user.getUserID());
+        userUnvanCRVM.insertUserUnvanCR(dummy);
 
+        UserAchievementCR dum = new UserAchievementCR();
+        dum.setAchievementID(achId);
+        dum.setUserID(user.getUserID());
+        userAchievementCRVM.insertUserAchievementCR(dum);
 
-
-
+        Toast.makeText(context,""+unvanVM.getUnvanById(unvanId).getUnvanName()+" ünvanı açıldı. Tebrikler!",Toast.LENGTH_LONG).show();
 
         });
 

@@ -3,28 +3,22 @@ package com.example.quitquick.Repository;
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;
-import androidx.room.Query;
 
 import com.example.quitquick.DAO.qqDAO;
 import com.example.quitquick.Entities.Unvan;
+import com.example.quitquick.Entities.User;
+import com.example.quitquick.Entities.UserAchievementCR;
 import com.example.quitquick.RoomDB.QuitQuickDB;
 
 import java.util.List;
 
-public class UnvanREP {
+public class UserAchievementCRREP {
     private qqDAO dao;
-    private List<Unvan> liveDataUnvan;
 
-    public UnvanREP(Application application){
+    public UserAchievementCRREP(Application application){
         QuitQuickDB db = QuitQuickDB.getDB(application.getApplicationContext());
         dao = db.getDao();
-        liveDataUnvan =dao.getAllUnvan();
     }
 
-    public List<Unvan> getAllUnvan(){return dao.getAllUnvan();}
-    public void insertUnvan(Unvan unvan){dao.insertUnvan(unvan);};
-    public  Unvan getUnvanById(int id){
-        return dao.getUnvanById(id);
-    }
-
+    public void insertUserAch(UserAchievementCR userAchievementCR){dao.insertUserAch(userAchievementCR);};
 }
