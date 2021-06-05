@@ -14,7 +14,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
 
@@ -28,7 +27,7 @@ import com.example.quitquick.ViewModels.UserAchievementCRVM;
 import com.example.quitquick.ViewModels.UserUnvanCRVM;
 import com.example.quitquick.ViewModels.UserVM;
 
-import java.lang.reflect.Array;
+import java.io.Serializable;
 import java.text.ParseException;
 import java.util.List;
 import java.util.Objects;
@@ -64,7 +63,8 @@ public class AchievementAdapter extends ArrayAdapter<Achievement> {
 
         Achievement ach = achievements.get(position);
         tvAchDescription.setText(ach.getAchDesc());
-        tvAchProgress.setText("1");
+
+
 
         achievementVM = new ViewModelProvider((ViewModelStoreOwner) context).get(com.example.quitquick.ViewModels.AchievementVM.class);
         userVM = new ViewModelProvider((ViewModelStoreOwner) context).get(com.example.quitquick.ViewModels.UserVM.class);
@@ -75,16 +75,31 @@ public class AchievementAdapter extends ArrayAdapter<Achievement> {
         messageVM = new ViewModelProvider((ViewModelStoreOwner)context).get(com.example.quitquick.ViewModels.MessageVM.class);
         userUnvanCRVM = new ViewModelProvider((ViewModelStoreOwner)context).get(com.example.quitquick.ViewModels.UserUnvanCRVM.class);
         userAchievementCRVM = new ViewModelProvider((ViewModelStoreOwner)context).get(com.example.quitquick.ViewModels.UserAchievementCRVM.class);
+        try {
+            Serializable  current= checkForProgress(achievements.get(position).getAchId());
+            int objective = achievements.get(position).getAchievementObjective();
+            tvAchProgress.setText(current+"/"+objective);
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
 
         try {
             if(checkForAchieved(ach.getAchId())){
                 btnUnlock.setClickable(true);
                 btnUnlock.setText("Başardın!");
                 btnUnlock.setHighlightColor(Color.BLUE);
+                tvAchProgress.setText("✓✓✓");
+                tvAchDescription.setTextColor(Color.BLUE);
+                if (!Objects.isNull(isCollected(user.getUserID(),achievements.get(position).getAchId()))){
+
+                    tvAchDescription.setTextColor(Color.BLACK);
+                }
 
 
-
-            }else{btnUnlock.setClickable(false);btnUnlock.setText("Kilitli.");btnUnlock.setHighlightColor(Color.RED);}
+            }else{btnUnlock.setText("Kilitli.");btnUnlock.setEnabled(false);btnUnlock.setTextColor(Color.RED);tvAchDescription.setTextColor(Color.RED);}
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -95,8 +110,8 @@ public class AchievementAdapter extends ArrayAdapter<Achievement> {
             int achId = achievements.get(position).getAchId();
             UserUnvanCR dummy = new UserUnvanCR();
 
-            UserUnvanCR lamb = new UserUnvanCR();
-            lamb = userUnvanCRVM.checkIfUserHasUnvan(user.getUserID(),unvanId);
+            UserUnvanCR lamb;
+            lamb = isCollected(user.getUserID(),unvanId);
 
             try {
                 if (checkForAchieved(achId)) {
@@ -111,18 +126,17 @@ public class AchievementAdapter extends ArrayAdapter<Achievement> {
                         dum.setAchievementID(achId);
                         dum.setUserID(user.getUserID());
                         userAchievementCRVM.insertUserAchievementCR(dum);
+                        achDone(btnUnlock);
+                        tvAchDescription.setTextColor(Color.BLACK);
 
 
-                    }else{
-                        Toast.makeText(context,"Bu başarımı zaten açtınız.",Toast.LENGTH_LONG).show();
                     }
-                } else {
-                    Toast.makeText(context, "Henüz bu ünvanı açamazsınız.", Toast.LENGTH_SHORT).show();
                 }
             } catch (ParseException e) {
                 e.printStackTrace();
             }
         });
+
 
 
         return view;
@@ -215,5 +229,31 @@ public class AchievementAdapter extends ArrayAdapter<Achievement> {
         }
 
         return flag;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public Serializable checkForProgress(int achId) throws ParseException {
+
+                if (achId==1||achId==2||achId==3) {
+                    return Integer.parseInt(Calculations.cigsNotSmoked(user.getCigPerDay(), user.getStartDate()));
+                }else if(achId==4||achId==5||achId==6){
+                    return  Calculations.EarnedMoney(user.getHowManyCigInPack(),user.getPricePerPack(),user.getCigPerDay(),user.getStartDate());
+                }else if(achId==7||achId==8||achId==9||achId==10){
+                    return (int) Calculations.daysNotSmoked(user.getStartDate());
+                }else if(achId==11||achId==12||achId==13){
+                    return messageVM.getUsersMessagesById(user.getUserID()).size();
+                }
+
+                return -1;
+
+
+
+    }
+
+    public void achDone(Button btnUnlock){btnUnlock.setText("Alındı.");btnUnlock.setEnabled(false);}
+
+    public UserUnvanCR isCollected(int userID,int unvanID){
+        return  userUnvanCRVM.checkIfUserHasUnvan(userID,unvanID);
+
     }
 }

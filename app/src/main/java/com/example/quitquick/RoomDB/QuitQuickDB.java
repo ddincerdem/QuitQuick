@@ -105,12 +105,14 @@ public abstract class QuitQuickDB  extends RoomDatabase {
             ach.setAchDesc("1 sigara içilmedi");
             ach.setAchName("sigara1");
             ach.setAchUnvanId(1);
+            ach.setAchId(1);
             ach.setAchievementObjective(1);
             instance.getDao().insertAchievement(ach);
 
             ach.setAchDesc("100 sigara içilmedi");
             ach.setAchName("sigara2");
             ach.setAchUnvanId(2);
+            ach.setAchId(2);
             ach.setAchievementObjective(100);
             instance.getDao().insertAchievement(ach);
 
@@ -118,57 +120,76 @@ public abstract class QuitQuickDB  extends RoomDatabase {
             ach.setAchName("sigara3");
             ach.setAchievementObjective(1000);
             ach.setAchUnvanId(3);
+            ach.setAchId(3);
             instance.getDao().insertAchievement(ach);
 
             ach.setAchDesc("10 lira harcanmadı");
             ach.setAchievementObjective(10);
             ach.setAchName("para1");
             ach.setAchUnvanId(4);
+            ach.setAchId(4);
             instance.getDao().insertAchievement(ach);
 
             ach.setAchDesc("100 lira harcanmadı");
             ach.setAchName("para2");
+            ach.setAchievementObjective(100);
             ach.setAchUnvanId(5);
+            ach.setAchId(5);
             instance.getDao().insertAchievement(ach);
 
             ach.setAchDesc("1000 lira harcanmadı");
             ach.setAchName("para3");
+            ach.setAchievementObjective(100);
             ach.setAchUnvanId(6);
+            ach.setAchId(6);
             instance.getDao().insertAchievement(ach);
 
             ach.setAchDesc("1 gündür sigara içilmedi");
+            ach.setAchievementObjective(1);
             ach.setAchName("gun1");
             ach.setAchUnvanId(7);
+            ach.setAchId(7);
             instance.getDao().insertAchievement(ach);
 
             ach.setAchDesc("10 gündür sigara içilmedi");
+            ach.setAchievementObjective(10);
             ach.setAchName("gun2");
             ach.setAchUnvanId(8);
+            ach.setAchId(8);
             instance.getDao().insertAchievement(ach);
 
             ach.setAchDesc("100 gündür sigara içilmedi");
             ach.setAchName("gun3");
+            ach.setAchId(9);
+            ach.setAchievementObjective(100);
             ach.setAchUnvanId(9);
             instance.getDao().insertAchievement(ach);
 
             ach.setAchDesc("1000 gündür sigara içilmedi");
             ach.setAchName("gun4");
+            ach.setAchievementObjective(1000);
             ach.setAchUnvanId(10);
+            ach.setAchId(10);
             instance.getDao().insertAchievement(ach);
 
             ach.setAchDesc("1 mesaj gönderildi");
             ach.setAchName("mesaj1");
+            ach.setAchievementObjective(1);
             ach.setAchUnvanId(11);
+            ach.setAchId(11);
             instance.getDao().insertAchievement(ach);
 
             ach.setAchDesc("10 mesaj gönderildi");
             ach.setAchName("mesaj2");
+            ach.setAchievementObjective(10);
             ach.setAchUnvanId(12);
+            ach.setAchId(12);
             instance.getDao().insertAchievement(ach);
 
             ach.setAchDesc("100 mesaj gönderildi");
             ach.setAchName("mesaj3");
-            ach.setAchUnvanId(13);
+            ach.setAchievementObjective(100);
+            ach.setAchUnvanId(13);ach.setAchId(13);
             instance.getDao().insertAchievement(ach);
 
         }

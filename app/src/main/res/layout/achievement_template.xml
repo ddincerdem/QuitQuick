@@ -33,7 +33,7 @@
     <Button
         android:padding="5dp"
         android:id="@+id/btnUnlockTitle"
-        android:layout_width="157dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="Aç"
         app:layout_constraintTop_toTopOf="parent"

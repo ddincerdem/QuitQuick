@@ -9,6 +9,8 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.quitquick.Entities.User;
 import com.example.quitquick.ViewModels.UserVM;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -51,6 +53,7 @@ public  class Calculations {
         return Para;
     }
 
+    @NotNull
     @RequiresApi(api = Build.VERSION_CODES.O)
     public static String cigsNotSmoked(int cigPerDay,String startDatee) throws ParseException {
 
