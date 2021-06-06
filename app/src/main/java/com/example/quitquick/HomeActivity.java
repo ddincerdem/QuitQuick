@@ -16,8 +16,10 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.quitquick.Entities.Message;
+import com.example.quitquick.Entities.Unvan;
 import com.example.quitquick.Entities.User;
 import com.example.quitquick.ViewModels.MessageVM;
+import com.example.quitquick.ViewModels.UnvanVM;
 import com.example.quitquick.ViewModels.UserVM;
 
 import java.text.ParseException;
@@ -42,9 +44,11 @@ public class HomeActivity extends AppCompatActivity {
     int UserID;
     UserVM userVM;
     MessageVM msgVM;
+    UnvanVM unvanVM;
     List<Message> Messages;
     Message LastMessage;
     User MessageSender;
+    Unvan unvan;
     SessionManagament sessionManagament;
 
     @Override
@@ -72,6 +76,9 @@ public class HomeActivity extends AppCompatActivity {
         UserID = sessionManagament.getSession();
         userVM = new ViewModelProvider(this).get(com.example.quitquick.ViewModels.UserVM.class);
         msgVM = new ViewModelProvider(this).get(com.example.quitquick.ViewModels.MessageVM.class);
+        unvanVM = new ViewModelProvider(this).get(com.example.quitquick.ViewModels.UnvanVM.class);
+        unvan = new Unvan();
+
         user = userVM.findUserById(UserID);
         Messages = msgVM.getAllMessages();
 
@@ -123,12 +130,11 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void setMessages() {
-
         LastMessage = Messages.get(Messages.size()-1);
         MessageSender = userVM.findUserById(LastMessage.getSenderId());
         txtName.setText(String.valueOf(MessageSender.getFirstName()+" "+MessageSender.getLastName()));
         txtMessage.setText(String.valueOf(LastMessage.getMessage()));
-        txtTitle.setText("master"+" ");
+        txtTitle.setText("Mesajlar");
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)

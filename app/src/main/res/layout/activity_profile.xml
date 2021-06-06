@@ -5,340 +5,330 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/green3"
+    android:textAlignment="center"
     tools:context=".ProfileActivity">
 
-     <LinearLayout
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"
-         android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-         <ImageView
-             android:id="@+id/btnLogOut"
-             android:layout_width="80dp"
-             android:layout_height="80dp"
-             android:clickable="true"
-             android:src="@drawable/ic_sign_out"
-             android:onClick="logOut"/>
+        <ImageView
+            android:id="@+id/btnLogOut"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:clickable="true"
+            android:onClick="logOut"
+            android:src="@drawable/ic_sign_out" />
 
-         <ImageView
-             android:id="@+id/imgProfilePic"
-             android:layout_width="150dp"
-             android:layout_height="150dp"
-             android:layout_marginLeft="130dp"
-             android:clickable="true"
-             android:src="@drawable/ic_main_icon" />
+        <ImageView
+            android:id="@+id/imgProfilePic"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="130dp"
+            android:clickable="true"
+            android:src="@drawable/ic_main_icon" />
 
-         <LinearLayout
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-             <LinearLayout
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:layout_marginLeft="20dp"
-                 android:layout_marginTop="10dp"
-                 android:layout_marginRight="20dp"
-                 android:background="@color/green2"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:background="@color/green2"
 
-                 android:orientation="horizontal">
-
-
-                     <LinearLayout
-                         android:layout_width="match_parent"
-                         android:layout_height="match_parent"
-                         android:orientation="vertical">
-
-                         <LinearLayout
-                             android:layout_width="match_parent"
-                             android:layout_height="150dp"
-                             android:orientation="vertical">
-
-                             <LinearLayout
-                                 android:layout_width="match_parent"
-                                 android:layout_height="wrap_content"
-                                 android:background="@color/red1"
-                                 android:orientation="vertical">
-
-                                 <TextView
-                                     android:layout_width="match_parent"
-                                     android:layout_height="wrap_content"
-                                     android:layout_marginLeft="10dp"
-                                     android:layout_marginRight="10dp"
-                                     android:gravity="center"
-                                     android:text="Kişisel Bilgiler"
-                                     android:textColor="@color/white"
-                                     android:textSize="16dp"
-                                     android:textStyle="bold|italic" />
-                             </LinearLayout>
-
-                             <LinearLayout
-                                 android:layout_width="match_parent"
-                                 android:layout_height="wrap_content"
-                                 android:orientation="horizontal">
-
-                                 <TextView
-                                     android:layout_width="wrap_content"
-                                     android:layout_height="wrap_content"
-                                     android:layout_marginLeft="10dp"
-                                     android:layout_marginTop="5dp"
-                                     android:text="İsim:"
-                                     android:textColor="@color/white"
-                                     android:textSize="16dp"
-                                     android:textStyle="bold|italic" />
-
-                                 <TextView
-                                     android:id="@+id/txtProfileName"
-                                     android:layout_width="wrap_content"
-                                     android:layout_height="wrap_content"
-                                     android:layout_marginLeft="60dp"
-                                     android:layout_marginTop="5dp"
-                                     android:text=""
-                                     android:textColor="@color/white"
-                                     android:textSize="16dp"
-                                     android:textStyle="bold|italic" />
-
-                                 <Spinner
-                                     android:id="@+id/spnUnvan"
-                                     android:layout_width="110dp"
-                                     android:layout_height="wrap_content"
-                                     android:layout_marginHorizontal="30dp"
-                                     android:layout_marginTop="2dp"></Spinner>
-                             </LinearLayout>
-
-                             <LinearLayout
-                                 android:layout_width="match_parent"
-                                 android:layout_height="wrap_content"
-                                 android:orientation="horizontal">
-
-                                 <TextView
-                                     android:layout_width="wrap_content"
-                                     android:layout_height="wrap_content"
-                                     android:layout_marginLeft="10dp"
-                                     android:layout_marginTop="5dp"
-                                     android:text="Soyisim:"
-                                     android:textColor="@color/white"
-                                     android:textSize="16dp"
-                                     android:textStyle="bold|italic" />
-
-                                 <TextView
-                                     android:id="@+id/txtProfileSurname"
-                                     android:layout_width="wrap_content"
-                                     android:layout_height="wrap_content"
-                                     android:layout_marginLeft="34dp"
-                                     android:layout_marginTop="5dp"
-                                     android:text="Demirci"
-                                     android:textColor="@color/white"
-                                     android:textSize="16dp"
-                                     android:textStyle="bold|italic" />
-
-                             </LinearLayout>
-
-                             <LinearLayout
-                                 android:layout_width="match_parent"
-                                 android:layout_height="wrap_content"
-                                 android:orientation="horizontal">
-
-                                 <TextView
-                                     android:layout_width="wrap_content"
-                                     android:layout_height="wrap_content"
-                                     android:layout_marginLeft="10dp"
-                                     android:layout_marginTop="5dp"
-                                     android:text="E-Mail:"
-                                     android:textColor="@color/white"
-                                     android:textSize="16dp"
-                                     android:textStyle="bold|italic" />
-
-                                 <TextView
-                                     android:id="@+id/txtProfileEmail"
-                                     android:layout_width="wrap_content"
-                                     android:layout_height="wrap_content"
-                                     android:layout_marginLeft="44dp"
-                                     android:layout_marginTop="5dp"
-                                     android:text="ddincerdem@gmail.com"
-                                     android:textColor="@color/white"
-                                     android:textSize="16dp"
-                                     android:textStyle="bold|italic" />
-
-                             </LinearLayout>
-
-                             <LinearLayout
-                                 android:layout_width="match_parent"
-                                 android:layout_height="wrap_content"
-                                 android:orientation="horizontal">
-
-                                 <Button
-                                     android:id="@+id/btnUpdate"
-                                     android:layout_width="match_parent"
-                                     android:layout_height="match_parent"
-                                     android:backgroundTint="@color/green5"
-                                     android:text="Başarılarıma Göz At"
-                                     android:onClick="CheckAch"
-                                     android:textSize="14dp"
-                                     />
-
-                             </LinearLayout>
-
-                         </LinearLayout>
-
-                         <LinearLayout
-                             android:layout_width="match_parent"
-                             android:layout_height="150dp"
-                             android:background="@color/green1"
-                             android:orientation="vertical">
-
-                             <LinearLayout
-                                 android:layout_width="match_parent"
-                                 android:layout_height="wrap_content"
-                                 android:background="@color/red1"
-                                 android:orientation="vertical">
-
-                                 <TextView
-                                     android:layout_width="match_parent"
-                                     android:layout_height="wrap_content"
-                                     android:layout_marginLeft="10dp"
-                                     android:layout_marginRight="10dp"
-                                     android:gravity="center"
-                                     android:text="Kazançlarınız"
-                                     android:textColor="@color/white"
-                                     android:textSize="16dp"
-                                     android:textStyle="bold|italic" />
-                             </LinearLayout>
-
-                             <LinearLayout
-                                 android:layout_width="match_parent"
-                                 android:layout_height="match_parent"
-                                 android:orientation="vertical">
-
-                                 <GridLayout
-                                     android:layout_width="match_parent"
-                                     android:layout_height="match_parent"
-                                     android:columnCount="2"
-                                     android:rowCount="1">
-
-                                     <androidx.cardview.widget.CardView
-                                         android:layout_width="wrap_content"
-                                         android:layout_height="wrap_content"
-                                         android:layout_gravity="fill"
-                                         android:layout_columnWeight="1"
-                                         android:layout_rowWeight="1"
-                                         android:backgroundTint="@color/yellow1"
-                                         android:layout_row="0"
-                                         android:layout_column="0"
-                                         app:cardCornerRadius="8dp"
-                                         android:elevation="8dp"
-                                         app:cardUseCompatPadding="true">
-
-                                         <LinearLayout
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent"
-                                             android:layout_gravity="center_vertical|center_horizontal"
-                                             android:gravity="center"
-                                             android:orientation="vertical">
-
-                                             <TextView
-                                                 android:id="@+id/txtProfileCig"
-                                                 android:layout_width="wrap_content"
-                                                 android:layout_height="wrap_content"
-                                                 android:text="0 adet"
-                                                 android:textSize="26sp"
-                                                 android:textColor="@color/white"
-                                                 android:textStyle="bold"/>
-
-                                             <TextView
-                                                 android:layout_width="wrap_content"
-                                                 android:layout_height="wrap_content"
-                                                 android:text="İçilmemiş Sigara"
-                                                 android:textSize="16sp"
-                                                 android:textColor="@color/white"
-                                                 android:textStyle="bold"/>
+                android:orientation="horizontal">
 
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/red1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:gravity="center"
+                                android:text="Kişisel Bilgiler"
+                                android:textColor="@color/white"
+                                android:textSize="16dp"
+                                android:textStyle="bold|italic" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="5dp"
+                                android:text="İsim:"
+                                android:textColor="@color/white"
+                                android:textSize="16dp"
+                                android:textStyle="bold|italic" />
+
+                            <TextView
+                                android:id="@+id/txtProfileName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="60dp"
+                                android:layout_marginTop="5dp"
+                                android:text=""
+                                android:textColor="@color/white"
+                                android:textSize="16dp"
+                                android:textStyle="bold|italic" />
+
+                            <Spinner
+                                android:id="@+id/spnUnvan"
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="110dp"
+                                android:layout_marginTop="2dp"
+                                android:textColor="@color/white"
+                                android:backgroundTint="@color/yellow1">
+
+                            </Spinner>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="5dp"
+                                android:text="Soyisim:"
+                                android:textColor="@color/white"
+                                android:textSize="16dp"
+                                android:textStyle="bold|italic" />
+
+                            <TextView
+                                android:id="@+id/txtProfileSurname"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="34dp"
+                                android:layout_marginTop="5dp"
+                                android:text=""
+                                android:textColor="@color/white"
+                                android:textSize="16dp"
+                                android:textStyle="bold|italic" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="5dp"
+                                android:text="E-Mail:"
+                                android:textColor="@color/white"
+                                android:textSize="16dp"
+                                android:textStyle="bold|italic" />
+
+                            <TextView
+                                android:id="@+id/txtProfileEmail"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="44dp"
+                                android:layout_marginTop="5dp"
+                                android:text=""
+                                android:textColor="@color/white"
+                                android:textSize="16dp"
+                                android:textStyle="bold|italic" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:background="@color/green1"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/red1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:gravity="center"
+                                android:text="Kazançlarınız"
+                                android:textColor="@color/white"
+                                android:textSize="16dp"
+                                android:textStyle="bold|italic" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <GridLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:columnCount="2"
+                                android:rowCount="1">
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_row="0"
+                                    android:layout_rowWeight="1"
+                                    android:layout_column="0"
+                                    android:layout_columnWeight="1"
+                                    android:layout_gravity="fill"
+                                    android:backgroundTint="@color/yellow1"
+                                    android:elevation="8dp"
+                                    app:cardCornerRadius="8dp"
+                                    app:cardUseCompatPadding="true">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center_vertical|center_horizontal"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/txtProfileCig"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text=""
+                                            android:textColor="@color/white"
+                                            android:textSize="26sp"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="İçilmemiş Sigara"
+                                            android:textColor="@color/white"
+                                            android:textSize="16sp"
+                                            android:textStyle="bold" />
 
 
-                                         </LinearLayout>
+                                    </LinearLayout>
 
 
-                                     </androidx.cardview.widget.CardView>
+                                </androidx.cardview.widget.CardView>
 
-                                     <androidx.cardview.widget.CardView
-                                         android:layout_width="142dp"
-                                         android:layout_height="wrap_content"
-                                         android:layout_row="0"
-                                         android:layout_rowWeight="1"
-                                         android:layout_column="1"
-                                         android:backgroundTint="@color/yellow1"
-                                         android:layout_columnWeight="1"
-                                         android:layout_gravity="fill"
-                                         android:elevation="8dp"
-                                         app:cardCornerRadius="8dp"
-                                         app:cardUseCompatPadding="true">
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="142dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_row="0"
+                                    android:layout_rowWeight="1"
+                                    android:layout_column="1"
+                                    android:layout_columnWeight="1"
+                                    android:layout_gravity="fill"
+                                    android:backgroundTint="@color/yellow1"
+                                    android:elevation="8dp"
+                                    app:cardCornerRadius="8dp"
+                                    app:cardUseCompatPadding="true">
 
-                                         <LinearLayout
-                                             android:layout_width="wrap_content"
-                                             android:layout_height="wrap_content"
-                                             android:layout_gravity="center_vertical|center_horizontal"
-                                             android:gravity="center"
-                                             android:orientation="vertical">
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_vertical|center_horizontal"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
 
-                                             <TextView
-                                                 android:id="@+id/txtProfileMoney"
-                                                 android:layout_width="wrap_content"
-                                                 android:layout_height="wrap_content"
-                                                 android:text="100TL"
-                                                 android:textSize="26sp"
-                                                 android:textColor="@color/white"
-                                                 android:textStyle="bold"/>
-                                             <TextView
-                                                 android:layout_width="wrap_content"
-                                                 android:layout_height="wrap_content"
-                                                 android:text="Kurtarılmış Para "
-                                                 android:textColor="@color/white"
-                                                 android:textSize="16sp"
-                                                 android:textStyle="bold"/>
+                                        <TextView
+                                            android:id="@+id/txtProfileMoney"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text=""
+                                            android:textColor="@color/white"
+                                            android:textSize="26sp"
+                                            android:textStyle="bold" />
 
-
-                             </LinearLayout>
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Kurtarılmış Para "
+                                            android:textColor="@color/white"
+                                            android:textSize="16sp"
+                                            android:textStyle="bold" />
 
 
-                         </androidx.cardview.widget.CardView>
+                                    </LinearLayout>
 
 
+                                </androidx.cardview.widget.CardView>
 
 
-                                 </GridLayout>
+                            </GridLayout>
 
 
-                             </LinearLayout>
-                         </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
 
 
-                     </LinearLayout>
+                </LinearLayout>
 
 
+            </LinearLayout>
 
-             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="30dp"
+                android:orientation="vertical">
 
-             <LinearLayout
-                 android:layout_width="match_parent"
-                 android:layout_height="match_parent"
-                 android:layout_marginLeft="30dp"
-                 android:layout_marginRight="30dp"
-                 android:layout_marginBottom="30dp"
-                 android:orientation="vertical">
-
-                 <Button
-                     android:id="@+id/btnDeletAccount"
-                     android:layout_marginTop="100dp"
-                     android:layout_marginLeft="15dp"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:layout_gravity="right"
-                     android:backgroundTint="@color/green5"
-                     android:text="Hesabı sil" />
-             </LinearLayout>
-         </LinearLayout>
+                <Button
+                    android:id="@+id/btnDeletAccount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="100dp"
+                    android:backgroundTint="@color/green5"
+                    android:text="Hesabı sil" />
+            </LinearLayout>
+        </LinearLayout>
 
 
-     </LinearLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

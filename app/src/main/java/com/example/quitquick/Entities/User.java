@@ -85,6 +85,18 @@ public class User {
         PricePerPack = pricePerPack;
         HowManyCigInPack = howManyCigInPack;
     }
+    public User(User a,int titleID) {
+        UserID = a.UserID;
+        FirstName = a.FirstName;
+        LastName = a.LastName;
+        Email = a.Email;
+        Password = a.Password;
+        StartDate = a.StartDate;
+        CigPerDay = a.CigPerDay;
+        PricePerPack = a.PricePerPack;
+        HowManyCigInPack = a.HowManyCigInPack;
+        SelectedUnvanID = titleID;
+    }
     public User(User a) {
         UserID = a.UserID;
         FirstName = a.FirstName;

@@ -47,7 +47,7 @@ public interface qqDAO {
     @Query("SELECT * FROM UNVAN")
     List<Unvan> getAllUnvan();
 
-    @Query("Select UnvanName from UNVAN where UnvanID =:id")
+    @Query("Select * from UNVAN where UnvanID =:id")
     Unvan getUnvanById(int id);
 
     @Query("Select * from UserUnvanCR where UserID=:userid AND UnvanID=:unvanid")
@@ -94,9 +94,5 @@ public interface qqDAO {
 
     @Query("SELECT UnvanID FROM UserUnvanCR WHERE UserID =:id")
     List<Integer> getUsersUnvansLast(int id);
-
-
-
-
-
+    
 }

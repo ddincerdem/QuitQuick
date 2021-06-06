@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.quitquick.Entities.Message;
 import com.example.quitquick.ViewModels.MessageVM;
+import com.example.quitquick.ViewModels.UnvanVM;
 import com.example.quitquick.ViewModels.UserVM;
 
 import java.util.List;
@@ -25,6 +26,7 @@ public class CommunityActivity extends AppCompatActivity {
     List<Message> messages;
     MessageVM messageVM;
     UserVM userVM;
+    UnvanVM unvanVM;
     EditText messageBox;
     SessionManagament sessionManagament;
     Message WholeMessage;
@@ -41,11 +43,12 @@ public class CommunityActivity extends AppCompatActivity {
         messageVM = new ViewModelProvider(this).get(com.example.quitquick.ViewModels.MessageVM.class);
         messages = messageVM.getAllMessages();
         userVM = new ViewModelProvider(this).get(com.example.quitquick.ViewModels.UserVM.class);
+        unvanVM = new ViewModelProvider(this).get(com.example.quitquick.ViewModels.UnvanVM.class);
 
         sessionManagament = new SessionManagament(this);
 
         recyclerView = findViewById(R.id.recyclerView);
-        MyAdapter myAdapter = new MyAdapter(this,messages,userVM);
+        MyAdapter myAdapter = new MyAdapter(this,messages,userVM,unvanVM);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

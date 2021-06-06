@@ -11,7 +11,9 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quitquick.Entities.Message;
+import com.example.quitquick.Entities.Unvan;
 import com.example.quitquick.Entities.User;
+import com.example.quitquick.ViewModels.UnvanVM;
 import com.example.quitquick.ViewModels.UserVM;
 
 import java.util.List;
@@ -23,11 +25,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public UserVM userVM;
     Message msg;
     User Sender;
+    UnvanVM unvanVM;
+    Unvan unvan;
 
-    public MyAdapter(Context ct,List<Message> msg,UserVM VM){
+    public MyAdapter(Context ct,List<Message> msg,UserVM VM,UnvanVM uw){
      context = ct;
      messages = msg;
      userVM = VM;
+     unvanVM= uw;
     }
 
     @NonNull
@@ -43,14 +48,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
          msg = messages.get(position);
          Sender = userVM.findUserById(msg.getSenderId());
-
+         unvan = unvanVM.getUnvanById(Sender.getSelectedUnvanID());
 
          holder.mesaj.setText(msg.getMessage());
-         holder.isim.setText(Sender.getFirstName() +" "+Sender.getLastName());
+         holder.isim.setText(unvan.getUnvanName()+" "+Sender.getFirstName() +" "+Sender.getLastName());
     }
     @Override
     public int getItemCount() {
-        //Bu değişecek
         return messages.size();
     }
 

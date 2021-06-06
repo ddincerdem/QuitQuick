@@ -9,6 +9,7 @@ package com.example.quitquick;
         import android.os.Build;
         import android.os.Bundle;
         import android.view.View;
+        import android.widget.AdapterView;
         import android.widget.ArrayAdapter;
         import android.widget.Button;
         import android.widget.ImageView;
@@ -25,6 +26,7 @@ package com.example.quitquick;
         import java.text.SimpleDateFormat;
         import java.time.LocalDate;
         import java.time.format.DateTimeFormatter;
+        import java.util.ArrayList;
         import java.util.Date;
         import java.util.List;
         import java.util.ListIterator;
@@ -35,7 +37,6 @@ public class ProfileActivity extends AppCompatActivity {
     int UserID;
     UserVM userVM;
     ImageView LogOut;
-    Button Update;
     Button Delete;
     ImageView ProfilePic;
     TextView  Name;
@@ -45,6 +46,7 @@ public class ProfileActivity extends AppCompatActivity {
     TextView Money;
     Spinner spinner;
     List<Integer> UnvanIDs;
+    public List<String> unvanlar = new ArrayList<String>();
     UserUnvanCRVM userUnvanCRVM;
     UnvanVM  unvanVM;
     SessionManagament sessionManagament;
@@ -57,7 +59,6 @@ public class ProfileActivity extends AppCompatActivity {
 
         sessionManagament = new SessionManagament(this);
         LogOut = (ImageView)findViewById(R.id.btnLogOut);
-        Update = (Button)findViewById(R.id.btnUpdate);
         Delete=(Button)findViewById(R.id.btnDeletAccount);
         ProfilePic=(ImageView)findViewById(R.id.imgProfilePic);
         Name = (TextView)findViewById(R.id.txtProfileName);
@@ -68,16 +69,40 @@ public class ProfileActivity extends AppCompatActivity {
         spinner = findViewById(R.id.spnUnvan);
         UserID = sessionManagament.getSession();
 
+
         userUnvanCRVM = new ViewModelProvider(this).get(com.example.quitquick.ViewModels.UserUnvanCRVM.class);
         userVM = new ViewModelProvider(this).get(com.example.quitquick.ViewModels.UserVM.class);
         unvanVM = new ViewModelProvider(this).get(com.example.quitquick.ViewModels.UnvanVM.class);
         user = userVM.findUserById(UserID);
+        spinner.setSelection(user.getSelectedUnvanID());
         UnvanIDs = userUnvanCRVM.getUserUnvansLast(UserID);
-        
+
+
+        for(int id=0;id< UnvanIDs.size();id++)
+        {
+          unvanlar.add(unvanVM.getUnvanById(UnvanIDs.get(id)).getUnvanName());
+        }
+
+         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,unvanlar );
+         spinner.setAdapter(adapter);
+
         Delete.setOnClickListener(v-> {
             userVM.deleteUser(user);
             sessionManagament.removeSession();
             openActivity();
+        });
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+             User user1 = new User(user,spinner.getSelectedItemPosition());
+             userVM.updateUser(user1);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
         });
     }
 
