@@ -186,7 +186,7 @@
                                   android:layout_alignParentTop="true"
                                   android:text="Temiz Ciğerli "
                                   android:textColor="@color/black"
-                                  android:textSize="20dp" />
+                                  android:textSize="15dp" />
                               <TextView
                                   android:id="@+id/txtMessengerName"
                                   android:layout_width="match_parent"

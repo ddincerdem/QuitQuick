@@ -143,6 +143,9 @@ public class ProfileActivity extends AppCompatActivity {
         Email.setText(email);
         Money.setText(Calculations.EarnedMoney(user.getHowManyCigInPack(),user.getPricePerPack(),user.CigPerDay,user.StartDate)+"TL");
         Cigars.setText(Calculations.cigsNotSmoked(user.getCigPerDay(),user.getStartDate()));
+        if (user.SelectedUnvanID != 0){
+            spinner.setSelection(user.getSelectedUnvanID());
+        }
     }
 
     public void CheckAch(View view) {

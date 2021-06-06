@@ -101,7 +101,6 @@ public class HomeActivity extends AppCompatActivity {
         btnAppBarAchievement.setOnClickListener(v -> {
             Intent achievement = new Intent(HomeActivity.this,AchievementActivity.class);
             startActivity(achievement);
-          //sessionManagament.removeSession();
         });
 
     }
@@ -134,7 +133,8 @@ public class HomeActivity extends AppCompatActivity {
         MessageSender = userVM.findUserById(LastMessage.getSenderId());
         txtName.setText(String.valueOf(MessageSender.getFirstName()+" "+MessageSender.getLastName()));
         txtMessage.setText(String.valueOf(LastMessage.getMessage()));
-        txtTitle.setText("Mesajlar");
+        txtTitle.setText("Mesajlar    ");
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)

@@ -32,6 +32,7 @@ public class CommunityActivity extends AppCompatActivity {
     Message WholeMessage;
     String message;
     int senderID;
+    MessageVM msgVM;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +45,11 @@ public class CommunityActivity extends AppCompatActivity {
         messages = messageVM.getAllMessages();
         userVM = new ViewModelProvider(this).get(com.example.quitquick.ViewModels.UserVM.class);
         unvanVM = new ViewModelProvider(this).get(com.example.quitquick.ViewModels.UnvanVM.class);
-
+        msgVM = new ViewModelProvider(this).get(com.example.quitquick.ViewModels.MessageVM.class);
         sessionManagament = new SessionManagament(this);
 
         recyclerView = findViewById(R.id.recyclerView);
-        MyAdapter myAdapter = new MyAdapter(this,messages,userVM,unvanVM);
+        MyAdapter myAdapter = new MyAdapter(this,messages,userVM,unvanVM,msgVM);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
